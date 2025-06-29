@@ -1,254 +1,137 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Visita Lojas GPA</title>
-<style>
-:root { --azul:#1e3a8a; --verde:#0a7a3c; }
-*{margin:0;padding:0;box-sizing:border-box}
-body{font:14px Arial;background:#f5f5f5;color:#111;min-height:100vh;display:flex;flex-direction:column}
-header{background:var(--azul);text-align:center;padding:15px 0;color:#fff}
-header h1{font-size:22px;margin-bottom:5px}
-header small{font-size:12px;opacity:0.9}
-#weather{margin-top:8px;font-size:12px;opacity:0.9}
-.logo-gpa{max-height:50px;margin-bottom:5px}
-form{flex:1;padding:10px}
-section{background:#fff;margin:10px 0;padding:15px;border-radius:10px;box-shadow:0 2px 4px rgba(0,0,0,0.1)}
-label{display:block;font-size:12px;font-weight:bold;margin-bottom:5px;color:#333}
-input,textarea{width:100%;padding:10px;font-size:14px;border:1px solid #ddd;border-radius:6px;margin-bottom:10px}
-input:focus,textarea:focus{outline:none;border-color:var(--azul)}
-input[readonly]{background:#f5f5f5;color:#666}
-textarea{height:60px;resize:none;font-family:inherit}
-.row{display:flex;gap:10px}
-.row > div{flex:1}
-.cod{flex:0 0 80px}
-button{padding:12px 20px;font-size:14px;font-weight:bold;border:none;border-radius:6px;cursor:pointer;margin:5px}
-.btn-toggle{background:#e9ecef;color:#333;width:100%}
-.btn-toggle:hover{background:#dee2e6}
-.btn-limpar{background:#6c757d;color:#fff}
-.btn-finalizar{background:var(--verde);color:#fff}
-.btn-limpar:hover{background:#5a6268}
-.btn-finalizar:hover{background:#087a32}
-.hidden{display:none}
-.checkbox-item{display:flex;align-items:center;gap:8px;padding:5px;border-radius:4px;margin-bottom:3px}
-.checkbox-item:hover{background:#f8f9fa}
-.checkbox-item input[type="checkbox"]{width:16px;height:16px;margin:0}
-.checkbox-item .texto{flex:1;font-size:13px}
-.btn-excluir{background:#dc3545;color:white;border:none;border-radius:3px;padding:2px 6px;font-size:10px;cursor:pointer}
-.btn-excluir:hover{background:#c82333}
-.metrics{background:#f8f9fa;padding:15px;border-radius:8px;margin-top:10px}
-.metrics-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}
-footer{background:#fff;padding:15px;display:flex;gap:10px;box-shadow:0 -2px 4px rgba(0,0,0,0.1)}
-footer button{flex:1}
-#status{text-align:center;padding:10px;font-weight:bold}
-.emoji-btn{font-size:20px;border:none;background:none;cursor:pointer}.emoji-btn:focus{outline:2px solid #ccc;border-radius:5px}
-</style>
+  <meta charset="UTF-8">
+  <title>Status da Loja</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      padding: 20px;
+    }
+
+    .bloco {
+      background: #fff;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 0 4px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-weight: bold;
+      margin-bottom: 5px;
+      display: block;
+    }
+
+    .linha {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    input[type="number"] {
+      padding: 8px;
+      width: 160px;
+      font-size: 16px;
+    }
+
+    .emoji-btn {
+      font-size: 32px;
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      border: 2px solid transparent;
+      transition: 0.2s;
+    }
+
+    .ativo {
+      border: 3px solid #000;
+      background-color: #e3e3e3;
+    }
+
+    .grupo-emojis {
+      display: flex;
+      gap: 10px;
+    }
+  </style>
 </head>
 <body>
-<header>
-  <img src="Logo_gpa.jpg" alt="Logo GPA" class="logo-gpa">
-  <h1>Visita Lojas GPA</h1>
-  <small id="clock"></small>
-  <div id="weather">
-    <span id="weather-emoji">🌤️</span>
-    <span id="temp">--°C</span>
-    <span id="weather-desc">Campinas • Carregando...</span>
-  </div>
-</header>
-<form>
-<section>
-  <div class="row">
-    <div class="cod">
-      <label>Código</label>
-      <input id="cod" maxlength="4" placeholder="0000" onkeyup="buscarLoja()">
-    </div>
-    <div>
-      <label>Nome da Loja</label>
-      <input id="nome" readonly placeholder="Digite o código da loja">
-    </div>
-  </div>
-  <div>
-    <label>Cidade</label>
-    <input id="cidade" readonly placeholder="Cidade será preenchida automaticamente">
-  </div>
-</section>
 
-<section>
-  <div class="row">
-    <div>
-      <label>Gerente</label>
-      <input id="gerente" placeholder="Nome do gerente">
-    </div>
-    <div>
-      <label>WhatsApp</label>
-      <input id="whats" placeholder="(11) 99999-9999">
-    </div>
-  </div>
-</section>
+  <h2>📊 Diagnóstico da Loja</h2>
 
-<section>
-  <label>Usuário</label>
-  <input id="usuario" placeholder="Seu nome">
-</section>
-
-
-<section>
-  <button type="button" class="btn-toggle" onclick="toggleMetricas()">📊 Métricas <span id="badge-metrics">(0)</span></button>
-  <div id="metricas" class="hidden">
-    <div class="metrics">
-      <div class="metrics-grid">
-        <div>
-          <label>Status 📊</label>
-          <div class="emoji-group" style="display:flex;gap:10px">
-            <button type="button" class="emoji-btn" onclick="setStatus('venda', '🟢')">🟢</button>
-            <button type="button" class="emoji-btn" onclick="setStatus('venda', '🟠')">🟠</button>
-            <button type="button" class="emoji-btn" onclick="setStatus('venda', '🔴')">🔴</button>
-            <span id="status-venda" style="margin-left:10px;font-size:20px"></span>
-          </div>
-        </div>
-        <div>
-          <label>💰 Venda Mensal (R$)</label>
-          <input id="venda" placeholder="0,00" onblur="formatarMoeda(this)" oninput="contarMetricas()">
-        </div>
-        <div>
-          <label>📈 Variação (%)</label>
-<div class="emoji-group" style="display:flex;gap:10px">
-  <button type="button" class="emoji-btn" onclick="setStatus('variacao', '🟢')">🟢</button>
-  <button type="button" class="emoji-btn" onclick="setStatus('variacao', '🟠')">🟠</button>
-  <button type="button" class="emoji-btn" onclick="setStatus('variacao', '🔴')">🔴</button>
-  <span id="status-variacao" style="margin-left:10px;font-size:20px"></span>
-</div>
-<input id="variacao" placeholder="0" type="number" oninput="contarMetricas()">
-        </div>
-        <div>
-          <label>📉 Perda (R$)</label>
-<div class="emoji-group" style="display:flex;gap:10px">
-  <button type="button" class="emoji-btn" onclick="setStatus('perda', '🟢')">🟢</button>
-  <button type="button" class="emoji-btn" onclick="setStatus('perda', '🟠')">🟠</button>
-  <button type="button" class="emoji-btn" onclick="setStatus('perda', '🔴')">🔴</button>
-  <span id="status-perda" style="margin-left:10px;font-size:20px"></span>
-</div>
-<input id="perda" placeholder="0,00" onblur="formatarMoeda(this)" oninput="contarMetricas()">
-        </div>
-        <div>
-          <label>🚫 Ruptura (%)</label>
-<div class="emoji-group" style="display:flex;gap:10px">
-  <button type="button" class="emoji-btn" onclick="setStatus('ruptura', '🟢')">🟢</button>
-  <button type="button" class="emoji-btn" onclick="setStatus('ruptura', '🟠')">🟠</button>
-  <button type="button" class="emoji-btn" onclick="setStatus('ruptura', '🔴')">🔴</button>
-  <span id="status-ruptura" style="margin-left:10px;font-size:20px"></span>
-</div>
-<input id="ruptura" placeholder="0" type="number" max="100" oninput="contarMetricas()">
-        </div>
+  <div class="bloco">
+    <label>💰 Venda Mensal (R$)</label>
+    <div class="linha">
+      <input type="number" placeholder="Ex: 3000000">
+      <div class="grupo-emojis" data-grupo="venda">
+        <span class="emoji-btn" data-status="bom">🟢</span>
+        <span class="emoji-btn" data-status="medio">🟠</span>
+        <span class="emoji-btn" data-status="ruim">🔴</span>
       </div>
     </div>
   </div>
-</section>
 
-<section>
-  <button type="button" class="btn-toggle" onclick="toggleChecklist()">📋 Checklist <span id="badge-check">(0)</span></button>
-  <div id="checklist" class="hidden">
-    <div id="lista-checklist" style="margin-top:10px">
-      <div class="checkbox-item">
-        <input type="checkbox" onchange="contarChecklist()">
-        <span class="texto">Ruptura</span>
-      </div>
-      <div class="checkbox-item">
-        <input type="checkbox" onchange="contarChecklist()">
-        <span class="texto">Preço errado</span>
-      </div>
-      <div class="checkbox-item">
-        <input type="checkbox" onchange="contarChecklist()">
-        <span class="texto">Layout inadequado</span>
-      </div>
-      <div class="checkbox-item">
-        <input type="checkbox" onchange="contarChecklist()">
-        <span class="texto">Limpeza</span>
-      </div>
-      <div class="checkbox-item">
-        <input type="checkbox" onchange="contarChecklist()">
-        <span class="texto">Atendimento</span>
-      </div>
-      <div class="checkbox-item">
-        <input type="checkbox" onchange="contarChecklist()">
-        <span class="texto">Exposição</span>
+  <div class="bloco">
+    <label>📈 Variação (%)</label>
+    <div class="linha">
+      <input type="number" placeholder="Ex: -10">
+      <div class="grupo-emojis" data-grupo="variacao">
+        <span class="emoji-btn" data-status="bom">🟢</span>
+        <span class="emoji-btn" data-status="medio">🟠</span>
+        <span class="emoji-btn" data-status="ruim">🔴</span>
       </div>
     </div>
-    <div style="display:flex;gap:10px;margin-top:15px">
-      <input id="novoItem" placeholder="Adicionar novo item" style="flex:1">
-      <button type="button" onclick="adicionarItem()" style="padding:10px 15px;background:#28a745;color:white;border:none;border-radius:6px;font-size:12px;font-weight:bold">+ ADD</button>
+  </div>
+
+  <div class="bloco">
+    <label>📉 Perda (R$)</label>
+    <div class="linha">
+      <input type="number" placeholder="Ex: 50000">
+      <div class="grupo-emojis" data-grupo="perda">
+        <span class="emoji-btn" data-status="bom">🟢</span>
+        <span class="emoji-btn" data-status="medio">🟠</span>
+        <span class="emoji-btn" data-status="ruim">🔴</span>
+      </div>
     </div>
   </div>
-</section>
 
-<section>
-  <label>Observações</label>
-  <textarea id="obs" placeholder="Observações da visita"></textarea>
-</section>
-
-<section>
-  <label>Fotos</label>
-  <div style="display:flex;gap:10px;align-items:center">
-    <input type="file" id="fotos" accept="image/*" multiple style="flex:1">
-    <button type="button" onclick="abrirCamera()" style="padding:10px 15px;background:#007bff;color:white;border:none;border-radius:6px;font-size:12px;font-weight:bold">📷 Câmera</button>
+  <div class="bloco">
+    <label>🚫 Ruptura (%)</label>
+    <div class="linha">
+      <input type="number" placeholder="Ex: 12">
+      <div class="grupo-emojis" data-grupo="ruptura">
+        <span class="emoji-btn" data-status="bom">🟢</span>
+        <span class="emoji-btn" data-status="medio">🟠</span>
+        <span class="emoji-btn" data-status="ruim">🔴</span>
+      </div>
+    </div>
   </div>
-</section>
 
-<div id="status"></div>
+  <script>
+    document.querySelectorAll('.grupo-emojis').forEach(grupo => {
+      const botoes = grupo.querySelectorAll('.emoji-btn');
 
-<footer>
-  <button type="button" class="btn-limpar" onclick="limpar()">🗑️ Limpar</button>
-  <button type="button" class="btn-finalizar" onclick="finalizar()">✅ Finalizar</button>
-</footer>
-</form>
-<script>
-async function buscarLoja() {
-  const codigo = document.getElementById('cod').value;
+      botoes.forEach(botao => {
+        botao.addEventListener('click', () => {
+          botoes.forEach(b => b.classList.remove('ativo'));
+          botao.classList.add('ativo');
 
-  if (codigo.length === 4) {
-    try {
-      const response = await fetch('https://raw.githubusercontent.com/Oslec68/paoextra/main/lojas.json');
-      const lojas = await response.json();
+          const grupoNome = grupo.dataset.grupo;
+          const status = botao.dataset.status;
 
-      const loja = lojas[codigo];
+          console.log(`Grupo: ${grupoNome}, Status escolhido: ${status}`);
+        });
+      });
+    });
+  </script>
 
-      if (loja) {
-        document.getElementById('nome').value = loja.nome;
-        document.getElementById('cidade').value = loja.cidade;
-      } else {
-        document.getElementById('nome').value = 'Loja não encontrada';
-        document.getElementById('cidade').value = '';
-      }
-    } catch (e) {
-      document.getElementById('nome').value = 'Erro ao carregar JSON';
-      document.getElementById('cidade').value = '';
-      console.error('Erro ao carregar lojas.json:', e);
-    }
-  } else {
-    document.getElementById('nome').value = '';
-    document.getElementById('cidade').value = '';
-  }
-}
-
-function toggleMetricas() {
-  const bloco = document.getElementById('metricas');
-  bloco.classList.toggle('hidden');
-}
-
-function toggleChecklist() {
-  const bloco = document.getElementById('checklist');
-  bloco.classList.toggle('hidden');
-}
-function setStatus(campo, emoji) {
-  const span = document.getElementById('status-' + campo);
-  if (span.textContent === emoji) {
-    span.textContent = '';
-  } else {
-    span.textContent = emoji;
-  }
-}
-</script>
 </body>
 </html>
-
