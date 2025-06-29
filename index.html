@@ -46,15 +46,18 @@ footer button{flex:1}
 </head>
 <body>
     <header>
- <img src="https://upload.wikimedia.org/wikipedia/commons/4/40/GPA_logo_2013.svg" alt="GPA">
- <h1>Visita Lojas GPA</h1>
- <small id="clock"></small>
-</header>
-<div class="api-config" style="display:none">
-  <label>🔑 API Key Google Places (obrigatória para avaliações reais):</label>
-  <input type="password" id="apiKey" placeholder="Insira sua API Key aqui" onchange="saveApiKey()">
-  <div style="margin-top:4px;font-size:10px;color:#856404">
-    <a href="https://console.cloud.google.com/apis/credentials" target="_blank" style="color:#856404">→ Obter API Key no Google Cloud Console</a>
+<img src="https://upload.wikimedia.org/wikipedia/commons/4/40/GPA_logo_2013.svg" 
+         alt="GPA" 
+         style="max-width: 120px; margin-bottom: 5px; display: block; margin-left: auto; margin-right: auto;">
+         
+    <h1 style="text-align:center; font-size: 22px;">Visita de Lojas</h1>
+    
+    <small id="clock" style="display: block; text-align: center; margin-bottom: 5px;"></small>
+    
+    <div id="weather" style="text-align: center;">
+      <span id="weather-emoji">🌤️</span>
+      <span id="temp">--°C</span>
+      <span id="weather-desc">Campinas • Carregando...</span>
   </div>
 </div>
     </div>
