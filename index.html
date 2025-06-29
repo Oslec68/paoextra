@@ -2,9 +2,9 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Formulário de Loja</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <title>Visita de Loja - Formulário</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -17,7 +17,7 @@
       padding: 15px;
       margin-bottom: 20px;
       border-radius: 10px;
-      box-shadow: 0 0 4px rgba(0,0,0,0.1);
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
       max-width: 500px;
       margin-left: auto;
       margin-right: auto;
@@ -53,9 +53,9 @@
     }
 
     .emoji-btn {
-      font-size: 16px;
-      width: 24px;
-      height: 24px;
+      font-size: 20px;
+      width: 28px;
+      height: 28px;
       border-radius: 50%;
       cursor: pointer;
       display: flex;
@@ -83,25 +83,25 @@
 </head>
 <body>
 
-  <!-- Cabeçalho da Loja -->
+  <!-- Bloco de Identificação da Loja -->
   <div class="bloco">
     <label>🏬 Nome da Loja</label>
-    <input type="text" placeholder="Ex: Loja Pão de Açúcar 032">
+    <input type="text" placeholder="Ex: Loja Pão de Açúcar 032" />
 
     <label>📍 Cidade</label>
-    <input type="text" placeholder="Ex: Campinas">
+    <input type="text" placeholder="Ex: Campinas" />
 
     <label>👤 Nome do Gerente</label>
-    <input type="text" placeholder="Ex: João da Silva">
+    <input type="text" placeholder="Ex: João da Silva" />
 
     <label>📱 WhatsApp</label>
-    <input type="text" placeholder="Ex: (11) 98765-4321">
+    <input type="text" placeholder="Ex: (11) 98765-4321" />
 
     <label>🧑‍💼 Usuário</label>
-    <input type="text" placeholder="Ex: André">
+    <input type="text" placeholder="Ex: André" />
   </div>
 
-  <!-- Métricas -->
+  <!-- Bloco de Métricas -->
   <div class="bloco">
     <div class="cabecalho">
       💰 Venda Mensal (R$)
@@ -111,32 +111,32 @@
         <span class="emoji-btn" data-status="🔴">🔴</span>
       </div>
     </div>
-    <input type="text" id="venda" placeholder="Digite o valor da venda">
+    <input type="text" id="venda" placeholder="Digite o valor da venda" />
   </div>
 
-  <!-- Checklist -->
+  <!-- Bloco de Checklist -->
   <div class="bloco">
     <div class="cabecalho">📋 Checklist</div>
     <div class="checklist-item">
-      <input type="checkbox" id="precos">
+      <input type="checkbox" id="precos" />
       <label for="precos">Verificou os preços na gôndola?</label>
     </div>
     <div class="checklist-item">
-      <input type="checkbox" id="estoque">
-      <label for="estoque">Conferiu estoque da loja?</label>
+      <input type="checkbox" id="estoque" />
+      <label for="estoque">Conferiu o estoque da loja?</label>
     </div>
     <div class="checklist-item">
-      <input type="checkbox" id="exposicao">
+      <input type="checkbox" id="exposicao" />
       <label for="exposicao">Checou a exposição dos produtos?</label>
     </div>
     <div class="checklist-item">
-      <input type="checkbox" id="data-validade">
-      <label for="data-validade">Venceu produtos ou tem perto da validade?</label>
+      <input type="checkbox" id="validade" />
+      <label for="validade">Produtos vencidos ou perto da validade?</label>
     </div>
   </div>
 
   <script>
-    // Formatação de moeda
+    // Formatação automática para moeda R$
     const inputVenda = document.getElementById("venda");
     inputVenda.addEventListener("input", function () {
       let valor = this.value.replace(/\D/g, "");
