@@ -1,0 +1,1234 @@
+{
+  "0001": {
+    "nome": "PA JARDIM PAULISTA",
+    "cidade": "SAO PAULO"
+  },
+  "0003": {
+    "nome": "PA NOVA ALIANCA",
+    "cidade": "RIBEIRAO PRETO"
+  },
+  "0004": {
+    "nome": "PA ANALIA FRANCO",
+    "cidade": "SAO PAULO"
+  },
+  "0014": {
+    "nome": "PA SOROCABA A B VIST",
+    "cidade": "SOROCABA"
+  },
+  "0018": {
+    "nome": "PA SANTOS CENTRO",
+    "cidade": "SANTOS"
+  },
+  "0022": {
+    "nome": "PA VALINHOS PORTAL",
+    "cidade": "VALINHOS"
+  },
+  "0026": {
+    "nome": "PA CAMPINAS CASTELO",
+    "cidade": "CAMPINAS"
+  },
+  "0037": {
+    "nome": "PA CAMPINAS CAMBUI",
+    "cidade": "CAMPINAS"
+  },
+  "0044": {
+    "nome": "EX SANTOS MACUCO",
+    "cidade": "SANTOS"
+  },
+  "0052": {
+    "nome": "PA GUARUJA PUGLISI",
+    "cidade": "GUARUJA"
+  },
+  "0069": {
+    "nome": "EX P. G. CENTRO",
+    "cidade": "PRAIA GRANDE"
+  },
+  "0122": {
+    "nome": "PA ARACATUBA",
+    "cidade": "ARACATUBA"
+  },
+  "0182": {
+    "nome": "HUB ADEGA - 0037",
+    "cidade": "CAMPINAS"
+  },
+  "0186": {
+    "nome": "PA TAUBATE INDEP",
+    "cidade": "TAUBATE"
+  },
+  "0189": {
+    "nome": "PA CAMPINAS PROENCA",
+    "cidade": "CAMPINAS"
+  },
+  "0205": {
+    "nome": "PA S.VICENTE ITARARE",
+    "cidade": "SAO VICENTE"
+  },
+  "0262": {
+    "nome": "0262 - GAL. LJ 2677",
+    "cidade": "MOGI DAS CRUZES"
+  },
+  "0334": {
+    "nome": "HUB FRESH - 0018",
+    "cidade": "SANTOS"
+  },
+  "0361": {
+    "nome": "PA AQUARIUS",
+    "cidade": "SAO JOSE DOS CAMPOS"
+  },
+  "0404": {
+    "nome": "HUB CLUBE EX LJ 1293",
+    "cidade": "CAMPINAS"
+  },
+  "0425": {
+    "nome": "HUB CLUBE EX LJ 1878",
+    "cidade": "CAMPINAS"
+  },
+  "0427": {
+    "nome": "HUB CLUBE EX LJ 1774",
+    "cidade": "SAO SEBASTIAO"
+  },
+  "0428": {
+    "nome": "HUB CLUBE EX LJ 1609",
+    "cidade": "AVARE"
+  },
+  "0465": {
+    "nome": "PA JUNDIAI",
+    "cidade": "JUNDIAI"
+  },
+  "0467": {
+    "nome": "GAL. LJ 4989",
+    "cidade": "CAMPINAS"
+  },
+  "0505": {
+    "nome": "PA CAMPINAS MANSOES",
+    "cidade": "CAMPINAS"
+  },
+  "0506": {
+    "nome": "PA ITU CENTRO II",
+    "cidade": "ITU"
+  },
+  "0507": {
+    "nome": "PA SALTO GETULIO VAR",
+    "cidade": "SALTO"
+  },
+  "0508": {
+    "nome": "PA ATIBAIA",
+    "cidade": "ATIBAIA"
+  },
+  "0660": {
+    "nome": "PA SOROCABA CAMPOLIM",
+    "cidade": "SOROCABA"
+  },
+  "0692": {
+    "nome": "EX SANTOS PEDREIRA",
+    "cidade": "SANTOS"
+  },
+  "0697": {
+    "nome": "EX P. G. V. TUPY",
+    "cidade": "PRAIA GRANDE"
+  },
+  "0745": {
+    "nome": "PA PRAIA GRD C FORTE",
+    "cidade": "PRAIA GRANDE"
+  },
+  "0812": {
+    "nome": "HUB ADEGA - 0465",
+    "cidade": "JUNDIAI"
+  },
+  "0817": {
+    "nome": "HUB ADEGA - 1751",
+    "cidade": "PERUIBE"
+  },
+  "0818": {
+    "nome": "HUB ADEGA - 1753",
+    "cidade": "PRAIA GRANDE"
+  },
+  "0820": {
+    "nome": "HUB ADEGA - 2078",
+    "cidade": "ITANHAEM"
+  },
+  "0822": {
+    "nome": "HUB ADEGA - 2333",
+    "cidade": "TAUBATE"
+  },
+  "0824": {
+    "nome": "HUB ADEGA - 2424",
+    "cidade": "SAO JOSE DO RIO PRET"
+  },
+  "0825": {
+    "nome": "HUB ADEGA - 2432",
+    "cidade": "GUARUJA"
+  },
+  "0830": {
+    "nome": "HUB PDA - 1758",
+    "cidade": "SANTOS"
+  },
+  "0831": {
+    "nome": "HUB PDA - 1005",
+    "cidade": "PERUIBE"
+  },
+  "0842": {
+    "nome": "HUB BARATEIRO - 1739",
+    "cidade": "ATIBAIA"
+  },
+  "0846": {
+    "nome": "HUB CLUBE EX LJ 0507",
+    "cidade": "SALTO"
+  },
+  "0848": {
+    "nome": "HUB PA FRESH - 0745",
+    "cidade": "PRAIA GRANDE"
+  },
+  "0849": {
+    "nome": "HUB PA FRESH - 1002",
+    "cidade": "ITU"
+  },
+  "0853": {
+    "nome": "HUB PA FRESH - 2383",
+    "cidade": "SAO JOSE DO RIO PRET"
+  },
+  "0856": {
+    "nome": "HUB PA FRESH - 6767",
+    "cidade": "PIRACICABA"
+  },
+  "0861": {
+    "nome": "HUB MEX FRESH - 0692",
+    "cidade": "SANTOS"
+  },
+  "0864": {
+    "nome": "HUB MEX FRESH - 1499",
+    "cidade": "PRAIA GRANDE"
+  },
+  "0866": {
+    "nome": "HUB MEX FRESH - 1745",
+    "cidade": "SANTOS"
+  },
+  "0867": {
+    "nome": "HUB MEX FRESH - 1750",
+    "cidade": "SANTOS"
+  },
+  "0882": {
+    "nome": "HUB CLUBE EX LJ 0026",
+    "cidade": "CAMPINAS"
+  },
+  "0885": {
+    "nome": "HUB CLUBE EX LJ 0052",
+    "cidade": "GUARUJA"
+  },
+  "0892": {
+    "nome": "HUB CBEM - 5679",
+    "cidade": "GUARUJA"
+  },
+  "0893": {
+    "nome": "HUB CBEM - 5680",
+    "cidade": "SANTOS"
+  },
+  "0894": {
+    "nome": "HUB MEX FRESH - 5682",
+    "cidade": "GUARUJA"
+  },
+  "0897": {
+    "nome": "HUB BARATEIRO - 5683",
+    "cidade": "BEBEDOURO"
+  },
+  "0926": {
+    "nome": "HUB MEX FRESH - 1875",
+    "cidade": "GUARUJA"
+  },
+  "0938": {
+    "nome": "HUB MEX FRESH - 5679",
+    "cidade": "GUARUJA"
+  },
+  "0948": {
+    "nome": "HUB BARATEIRO - 5659",
+    "cidade": "LEME"
+  },
+  "0952": {
+    "nome": "HUB MEX FRESH - 1748",
+    "cidade": "MONGAGUA"
+  },
+  "1002": {
+    "nome": "PA ITU CENTRO",
+    "cidade": "ITU"
+  },
+  "1005": {
+    "nome": "CIA BRASILEIRA DE DISTRIBUICAO",
+    "cidade": "PERUIBE"
+  },
+  "1014": {
+    "nome": "HUB BARATEIRO - 5740",
+    "cidade": "OLIMPIA"
+  },
+  "1016": {
+    "nome": "EX PADARIA PERUIBE",
+    "cidade": "PERUIBE"
+  },
+  "1021": {
+    "nome": "PA RIB PRETO INDEPEN",
+    "cidade": "RIBEIRAO PRETO"
+  },
+  "1034": {
+    "nome": "HUB CLUBE EX LJ 1312",
+    "cidade": "SAO CARLOS"
+  },
+  "1053": {
+    "nome": "HUB CLUBE EX LJ 1325",
+    "cidade": "ITU"
+  },
+  "1056": {
+    "nome": "HUB CLUBE EX LJ 1386",
+    "cidade": "JUNDIAI"
+  },
+  "1060": {
+    "nome": "HUB BARATEIRO - 5741",
+    "cidade": "ORLANDIA"
+  },
+  "1091": {
+    "nome": "HUB CLUBE EX LJ 0022",
+    "cidade": "VALINHOS"
+  },
+  "1092": {
+    "nome": "HUB CLUBE EX LJ 0122",
+    "cidade": "ARACATUBA"
+  },
+  "1093": {
+    "nome": "HUB CLUBE EX LJ 0186",
+    "cidade": "TAUBATE"
+  },
+  "1097": {
+    "nome": "HUB CLUBE EX LJ 1270",
+    "cidade": "PINDAMONHANGABA"
+  },
+  "1098": {
+    "nome": "HUB CLUBE EX LJ 1273",
+    "cidade": "CAMPOS DO JORDAO"
+  },
+  "1099": {
+    "nome": "HUB CLUBE EX LJ 1278",
+    "cidade": "LORENA"
+  },
+  "1101": {
+    "nome": "HUB CLUBE EX LJ 2071",
+    "cidade": "BERTIOGA"
+  },
+  "1102": {
+    "nome": "HUB CLUBE EX LJ 2329",
+    "cidade": "PIRACICABA"
+  },
+  "1104": {
+    "nome": "HUB CLUBE EX LJ 2385",
+    "cidade": "INDAIATUBA"
+  },
+  "1105": {
+    "nome": "HUB CLUBE EX LJ 2402",
+    "cidade": "SAO JOSE DO RIO PRET"
+  },
+  "1106": {
+    "nome": "HUB CLUBE EX LJ 2449",
+    "cidade": "BAURU"
+  },
+  "1107": {
+    "nome": "HUB CLUBE EX LJ 2474",
+    "cidade": "MARILIA"
+  },
+  "1108": {
+    "nome": "HUB CLUBE EX LJ 2481",
+    "cidade": "BOTUCATU"
+  },
+  "1109": {
+    "nome": "HUB CLUBE EX LJ 2484",
+    "cidade": "OURINHOS"
+  },
+  "1110": {
+    "nome": "HUB CLUBE EX LJ 5171",
+    "cidade": "LIMEIRA"
+  },
+  "1115": {
+    "nome": "HUB CLUBE EX LJ 2354",
+    "cidade": "GUARUJA"
+  },
+  "1118": {
+    "nome": "HUB FRESH - 2438",
+    "cidade": "SANTOS"
+  },
+  "1131": {
+    "nome": "HUB CLUBE EX LJ 1200",
+    "cidade": "ASSIS"
+  },
+  "1132": {
+    "nome": "HUB CLUBE EX LJ 5792",
+    "cidade": "UBATUBA"
+  },
+  "1141": {
+    "nome": "HUB MEX FRESH - 1217",
+    "cidade": "PERUIBE"
+  },
+  "1142": {
+    "nome": "HUB BARATEIRO - 5660",
+    "cidade": "PORTO FERREIRA"
+  },
+  "1146": {
+    "nome": "HUB MEX FRESH - 1862",
+    "cidade": "SANTOS"
+  },
+  "1147": {
+    "nome": "HUB PA FRESH - 2438",
+    "cidade": "SANTOS"
+  },
+  "1155": {
+    "nome": "MPA SWISS PARK",
+    "cidade": "CAMPINAS"
+  },
+  "1156": {
+    "nome": "MPA CEL JOSE DOMINGU",
+    "cidade": "SAO JOSE DOS CAMPOS"
+  },
+  "1175": {
+    "nome": "PA S.J.C. SHOPPING",
+    "cidade": "SAO JOSE DOS CAMPOS"
+  },
+  "1182": {
+    "nome": "PA ARARAQUARA SHOPP",
+    "cidade": "ARARAQUARA"
+  },
+  "1185": {
+    "nome": "VINHEDO",
+    "cidade": "VINHEDO"
+  },
+  "1188": {
+    "nome": "CAMPINAS JASMIN",
+    "cidade": "CAMPINAS"
+  },
+  "1191": {
+    "nome": "PA PRES PRUDENTE",
+    "cidade": "PRESIDENTE PRUDENTE"
+  },
+  "1200": {
+    "nome": "PA ASSIS",
+    "cidade": "ASSIS"
+  },
+  "1217": {
+    "nome": "EX PERUIBE RIBAMAR",
+    "cidade": "PERUIBE"
+  },
+  "1232": {
+    "nome": "MPA TAUBATE",
+    "cidade": "TAUBATE"
+  },
+  "1270": {
+    "nome": "PA PINDAMONHANGABA",
+    "cidade": "PINDAMONHANGABA"
+  },
+  "1273": {
+    "nome": "PA CAMPOS DO JORDAO",
+    "cidade": "CAMPOS DO JORDAO"
+  },
+  "1278": {
+    "nome": "PA LORENA",
+    "cidade": "LORENA"
+  },
+  "1293": {
+    "nome": "PA BARAO GERALDO",
+    "cidade": "CAMPINAS"
+  },
+  "1312": {
+    "nome": "PA SAO CARLOS",
+    "cidade": "SAO CARLOS"
+  },
+  "1325": {
+    "nome": "PA ITU",
+    "cidade": "ITU"
+  },
+  "1327": {
+    "nome": "PRAIA GRANDE SHOP",
+    "cidade": "PRAIA GRANDE"
+  },
+  "1367": {
+    "nome": "EX S.J.C. CENTRO",
+    "cidade": "SAO JOSE DOS CAMPOS"
+  },
+  "1386": {
+    "nome": "PA JUNDIAI CENTRO",
+    "cidade": "JUNDIAI"
+  },
+  "1420": {
+    "nome": "MPA PRESID WILSON",
+    "cidade": "SANTOS"
+  },
+  "1422": {
+    "nome": "MPA XAVANTES",
+    "cidade": "PRAIA GRANDE"
+  },
+  "1428": {
+    "nome": "MPA SAO CARLOS II",
+    "cidade": "SAO CARLOS"
+  },
+  "1430": {
+    "nome": "MPA MARIO RIBEIRO",
+    "cidade": "GUARUJA"
+  },
+  "1431": {
+    "nome": "MPA AZEVEDO SODRE",
+    "cidade": "SANTOS"
+  },
+  "1436": {
+    "nome": "MPA GUARUJA PERNAMBU",
+    "cidade": "GUARUJA"
+  },
+  "1438": {
+    "nome": "MPA INDAIATUBA",
+    "cidade": "INDAIATUBA"
+  },
+  "1439": {
+    "nome": "MPA LAURENT MARTINS",
+    "cidade": "SAO JOSE DOS CAMPOS"
+  },
+  "1451": {
+    "nome": "MPA MIGUEL ESTEFNO",
+    "cidade": "GUARUJA"
+  },
+  "1453": {
+    "nome": "MPA ANA COSTA",
+    "cidade": "SANTOS"
+  },
+  "1454": {
+    "nome": "MPA GAL RONDON 773",
+    "cidade": "GUARUJA"
+  },
+  "1455": {
+    "nome": "MPA HEITOR VL LOBOS",
+    "cidade": "SAO JOSE DOS CAMPOS"
+  },
+  "1460": {
+    "nome": "MPA EDENOR JOAO TASC",
+    "cidade": "VINHEDO"
+  },
+  "1464": {
+    "nome": "MPA MARECHAL DEODORO",
+    "cidade": "GUARUJA"
+  },
+  "1472": {
+    "nome": "MPA GONZAGA",
+    "cidade": "SANTOS"
+  },
+  "1480": {
+    "nome": "MME DOM PEDRO II(PG)",
+    "cidade": "PRAIA GRANDE"
+  },
+  "1499": {
+    "nome": "EX P. G. AVIACAO",
+    "cidade": "PRAIA GRANDE"
+  },
+  "1518": {
+    "nome": "MPA ALEXANDRE MIGUES",
+    "cidade": "GUARUJA"
+  },
+  "1524": {
+    "nome": "MPA PRINCESA D OESTE",
+    "cidade": "CAMPINAS"
+  },
+  "1528": {
+    "nome": "MPA CARLOS GOMES",
+    "cidade": "CAMPINAS"
+  },
+  "1529": {
+    "nome": "MME REAL PARK SUMARE",
+    "cidade": "SUMARE"
+  },
+  "1530": {
+    "nome": "MPA GOV FER COSTA",
+    "cidade": "SANTOS"
+  },
+  "1693": {
+    "nome": "PRAIA GRANDE AVIACAO",
+    "cidade": "PRAIA GRANDE"
+  },
+  "1724": {
+    "nome": "PA RIBEIRAO PRETO JD",
+    "cidade": "RIBEIRAO PRETO"
+  },
+  "1739": {
+    "nome": "EX ATIBAIA",
+    "cidade": "ATIBAIA"
+  },
+  "1740": {
+    "nome": "EX CUBATAO NOVE ABR",
+    "cidade": "CUBATAO"
+  },
+  "1741": {
+    "nome": "EX CUBATAO JD.CASQ",
+    "cidade": "CUBATAO"
+  },
+  "1742": {
+    "nome": "EX S BERNARDO CAMP",
+    "cidade": "SANTOS"
+  },
+  "1743": {
+    "nome": "PA SANTOS EP. PESSOA",
+    "cidade": "SANTOS"
+  },
+  "1744": {
+    "nome": "EX CUBATAO RUA SP",
+    "cidade": "CUBATAO"
+  },
+  "1745": {
+    "nome": "EX SANTOS N.S FATIMA",
+    "cidade": "SANTOS"
+  },
+  "1747": {
+    "nome": "EX SANTOS P LESSA",
+    "cidade": "SANTOS"
+  },
+  "1748": {
+    "nome": "EX MONGAGUA CENTRO",
+    "cidade": "MONGAGUA"
+  },
+  "1750": {
+    "nome": NaN,
+    "cidade": "SANTOS"
+  },
+  "1751": {
+    "nome": "EX PERUIBE P. ANCH",
+    "cidade": "PERUIBE"
+  },
+  "1752": {
+    "nome": "EX ITANHAEM BARBOSA",
+    "cidade": "ITANHAEM"
+  },
+  "1753": {
+    "nome": "EX P. G. GUILHERMINA",
+    "cidade": "PRAIA GRANDE"
+  },
+  "1754": {
+    "nome": "EX S. VICENTE M",
+    "cidade": "SAO VICENTE"
+  },
+  "1757": {
+    "nome": "EX S.VICENTE P. W",
+    "cidade": "SAO VICENTE"
+  },
+  "1758": {
+    "nome": "PA SANTOS BARTOLOMEU",
+    "cidade": "SANTOS"
+  },
+  "1773": {
+    "nome": "EX P. G. OCEAN",
+    "cidade": "PRAIA GRANDE"
+  },
+  "1774": {
+    "nome": "PA SAO SEBASTIAO",
+    "cidade": "SAO SEBASTIAO"
+  },
+  "1776": {
+    "nome": "EX P. G. CAICARA",
+    "cidade": "PRAIA GRANDE"
+  },
+  "1781": {
+    "nome": "EX MOGI MODERNO",
+    "cidade": "MOGI DAS CRUZES"
+  },
+  "1821": {
+    "nome": "EX V.C.JD. PROGRESSO",
+    "cidade": "GUARUJA"
+  },
+  "1853": {
+    "nome": "EX GUARUJA DOM PEDRO",
+    "cidade": "GUARUJA"
+  },
+  "1862": {
+    "nome": "EX SANTOS AQUARIO",
+    "cidade": "SANTOS"
+  },
+  "1875": {
+    "nome": "EX GUARUJA ENSEADA",
+    "cidade": "GUARUJA"
+  },
+  "1878": {
+    "nome": "PA CAMPINAS SOUZA",
+    "cidade": "CAMPINAS"
+  },
+  "1886": {
+    "nome": "EX MONGAGUA",
+    "cidade": "MONGAGUA"
+  },
+  "1888": {
+    "nome": "MAURILIO BIAGI",
+    "cidade": "RIBEIRAO PRETO"
+  },
+  "1994": {
+    "nome": "1994 - GAL. LJ 0501",
+    "cidade": "VOTORANTIM"
+  },
+  "2050": {
+    "nome": "PA RIVIERA SHOPPING",
+    "cidade": "BERTIOGA"
+  },
+  "2054": {
+    "nome": "2054 - GAL. LJ 0745",
+    "cidade": "PRAIA GRANDE"
+  },
+  "2071": {
+    "nome": "CIA BRASILEIRA DE DISTRIBUICAO",
+    "cidade": "BERTIOGA"
+  },
+  "2078": {
+    "nome": "EX ITANHAEM B ARTES",
+    "cidade": "ITANHAEM"
+  },
+  "2080": {
+    "nome": "EX ITAPETININGA",
+    "cidade": "ITAPETININGA"
+  },
+  "2188": {
+    "nome": "MPA DR VIEIRA BUENO",
+    "cidade": "CAMPINAS"
+  },
+  "2190": {
+    "nome": "PIRASSUNUNGA",
+    "cidade": "PIRASSUNUNGA"
+  },
+  "2204": {
+    "nome": "MPA MORAES SALLES",
+    "cidade": "CAMPINAS"
+  },
+  "2241": {
+    "nome": "DELIVERY PA LITORAL",
+    "cidade": "BERTIOGA"
+  },
+  "2243": {
+    "nome": "PO BAURU ESTORIL",
+    "cidade": "BAURU"
+  },
+  "2327": {
+    "nome": "EX BOICUCANGA",
+    "cidade": "SAO SEBASTIAO"
+  },
+  "2329": {
+    "nome": "PA PIRACICABA",
+    "cidade": "PIRACICABA"
+  },
+  "2354": {
+    "nome": "PA GUARUJA TEJEREBA",
+    "cidade": "GUARUJA"
+  },
+  "2356": {
+    "nome": "GAL. LJ 1438",
+    "cidade": "INDAIATUBA"
+  },
+  "2373": {
+    "nome": "PA PARQUE PRADO",
+    "cidade": "CAMPINAS"
+  },
+  "2383": {
+    "nome": "PA BADY BASSIT",
+    "cidade": "SAO JOSE RIO PRETO"
+  },
+  "2385": {
+    "nome": NaN,
+    "cidade": "INDAIATUBA"
+  },
+  "2402": {
+    "nome": "PA S J DO RIO PRETO",
+    "cidade": "SAO JOSE RIO PRETO"
+  },
+  "2414": {
+    "nome": "HUB BARATEIRO - 1754",
+    "cidade": "SAO VICENTE"
+  },
+  "2415": {
+    "nome": "HUB MEX FRESH - 0069",
+    "cidade": "PRAIA GRANDE"
+  },
+  "2424": {
+    "nome": "PA PA SJRP DAMHA",
+    "cidade": "SAO JOSE DO RIO PRET"
+  },
+  "2432": {
+    "nome": "PA GUARUJA SH JEQUIT",
+    "cidade": "GUARUJA"
+  },
+  "2438": {
+    "nome": "PA JOSE MENINO",
+    "cidade": "SANTOS"
+  },
+  "2445": {
+    "nome": "HUB PA FRESH - 0026",
+    "cidade": "CAMPINAS"
+  },
+  "2449": {
+    "nome": "PA BAURU JD. ESTORIL",
+    "cidade": "BAURU"
+  },
+  "2450": {
+    "nome": "PA BAURU ALTOS",
+    "cidade": "BAURU"
+  },
+  "2465": {
+    "nome": "PA CAMPINAS ITAPURA",
+    "cidade": "CAMPINAS"
+  },
+  "2474": {
+    "nome": "PA MARILIA",
+    "cidade": "MARILIA"
+  },
+  "2481": {
+    "nome": "PA BOTUCATU",
+    "cidade": "BOTUCATU"
+  },
+  "2484": {
+    "nome": "PA OURINHOS",
+    "cidade": "OURINHOS"
+  },
+  "2485": {
+    "nome": "BARRETOS",
+    "cidade": "BARRETOS"
+  },
+  "2504": {
+    "nome": "PO COLINAS",
+    "cidade": "SAO JOSE DOS CAMPOS"
+  },
+  "2544": {
+    "nome": "HUB MEX FRESH - 1742",
+    "cidade": "SANTOS"
+  },
+  "2548": {
+    "nome": "PO LEME",
+    "cidade": "LEME"
+  },
+  "2572": {
+    "nome": "PEG-PAG",
+    "cidade": "RIBEIRAO PRETO"
+  },
+  "2633": {
+    "nome": "HUB BARATEIRO - 1499",
+    "cidade": "PRAIA GRANDE"
+  },
+  "2648": {
+    "nome": "PO SANTOS",
+    "cidade": "SANTOS"
+  },
+  "2649": {
+    "nome": "PO PRAIA GRANDE",
+    "cidade": "PRAIA GRANDE"
+  },
+  "2666": {
+    "nome": "HUB BARATEIRO - 1745",
+    "cidade": "SANTOS"
+  },
+  "2674": {
+    "nome": "HUB MEX FRESH - 2080",
+    "cidade": "ITAPETININGA"
+  },
+  "2677": {
+    "nome": "PO BRAZ CUBAS",
+    "cidade": "MOGI DAS CRUZES"
+  },
+  "2681": {
+    "nome": "PO SAO CARLOS",
+    "cidade": "SAO CARLOS"
+  },
+  "2682": {
+    "nome": "PO ITATIBA",
+    "cidade": "ITATIBA"
+  },
+  "2684": {
+    "nome": "PO ITU",
+    "cidade": "ITU"
+  },
+  "2686": {
+    "nome": "PO SOROCABA",
+    "cidade": "SOROCABA"
+  },
+  "2696": {
+    "nome": "PO PIRACICABA",
+    "cidade": "PIRACICABA"
+  },
+  "2708": {
+    "nome": "PO ATIBAIA",
+    "cidade": "ATIBAIA"
+  },
+  "2740": {
+    "nome": "PO ORLANDIA",
+    "cidade": "ORLANDIA"
+  },
+  "2767": {
+    "nome": "PO GUAIRA",
+    "cidade": "GUAIRA"
+  },
+  "2788": {
+    "nome": "AMERICANA COLINA",
+    "cidade": "AMERICANA"
+  },
+  "2820": {
+    "nome": "HUB PA FRESH - 0014",
+    "cidade": "SOROCABA"
+  },
+  "2825": {
+    "nome": "PO SAO VICENTE PA",
+    "cidade": "SAO VICENTE"
+  },
+  "2838": {
+    "nome": "PA CAMBUI SANTA CRUZ",
+    "cidade": "CAMPINAS"
+  },
+  "2840": {
+    "nome": "PO SAO VICENTE AS",
+    "cidade": "SAO VICENTE"
+  },
+  "2843": {
+    "nome": "SALTO",
+    "cidade": "SALTO"
+  },
+  "2844": {
+    "nome": "PO TAUBATE",
+    "cidade": "TAUBATE"
+  },
+  "2858": {
+    "nome": "HUB BARATEIRO - 1367",
+    "cidade": "SAO JOSE DOS CAMPOS"
+  },
+  "2899": {
+    "nome": "SANTA IZABEL",
+    "cidade": "SANTA ISABEL"
+  },
+  "3011": {
+    "nome": "HUB BARATEIRO - 1757",
+    "cidade": "SAO VICENTE"
+  },
+  "3012": {
+    "nome": "HUB BARATEIRO - 1773",
+    "cidade": "PRAIA GRANDE"
+  },
+  "3013": {
+    "nome": "HUB BARATEIRO - 1776",
+    "cidade": "PRAIA GRANDE"
+  },
+  "3017": {
+    "nome": "HUB BARATEIRO - 0122",
+    "cidade": "ARACATUBA"
+  },
+  "3018": {
+    "nome": "HUB BARATEIRO - 0660",
+    "cidade": "SOROCABA"
+  },
+  "3025": {
+    "nome": "HUB BARATEIRO - 5657",
+    "cidade": "TAUBATE"
+  },
+  "3026": {
+    "nome": "HUB BARATEIRO - 5698",
+    "cidade": "SOROCABA"
+  },
+  "3027": {
+    "nome": "HUB BARATEIRO - 5736",
+    "cidade": "SAO CARLOS"
+  },
+  "3056": {
+    "nome": "HUB ADEGA - 2188",
+    "cidade": "CAMPINAS"
+  },
+  "3057": {
+    "nome": "HUB ADEGA - 2189",
+    "cidade": "CAMPINAS"
+  },
+  "3062": {
+    "nome": "HUB ADEGA - 2199",
+    "cidade": "CAMPINAS"
+  },
+  "3087": {
+    "nome": "HUB ADEGA - 4839",
+    "cidade": "SAO VICENTE"
+  },
+  "4870": {
+    "nome": "4870 - GAL. LJ 5059",
+    "cidade": "SANTOS"
+  },
+  "4877": {
+    "nome": "4877 - GAL. LJ 1170",
+    "cidade": "CAMPINAS"
+  },
+  "4989": {
+    "nome": "MPA BARATA RIBEIRO",
+    "cidade": "CAMPINAS"
+  },
+  "5015": {
+    "nome": "MPA MARIA MONTEIRO",
+    "cidade": "CAMPINAS"
+  },
+  "5023": {
+    "nome": "MPA BARAO DE PENEDO",
+    "cidade": "SANTOS"
+  },
+  "5059": {
+    "nome": "MPA EPITACIO PESSOA",
+    "cidade": "SANTOS"
+  },
+  "5082": {
+    "nome": "MPA BEST CENTER SJC",
+    "cidade": "SAO JOSE DOS CAMPOS"
+  },
+  "5085": {
+    "nome": "MPA ALECRINS CAMP",
+    "cidade": "CAMPINAS"
+  },
+  "5093": {
+    "nome": "MPA MOREIRA CESAR",
+    "cidade": "SOROCABA"
+  },
+  "5107": {
+    "nome": "MPA FERNANDO SILVA",
+    "cidade": "SOROCABA"
+  },
+  "5111": {
+    "nome": "MPA AV SAO JOAO SJC",
+    "cidade": "SAO JOSE DOS CAMPOS"
+  },
+  "5140": {
+    "nome": "MPA TOLENTINO FILG",
+    "cidade": "SANTOS"
+  },
+  "5142": {
+    "nome": "MPA MARECHAL MALLET",
+    "cidade": "PRAIA GRANDE"
+  },
+  "5165": {
+    "nome": "POSTO BROTAS",
+    "cidade": "BROTAS"
+  },
+  "5171": {
+    "nome": "PA LIMEIRA JD PARQUE",
+    "cidade": "LIMEIRA"
+  },
+  "5215": {
+    "nome": "HUB ADEGA - 5062",
+    "cidade": "SOROCABA"
+  },
+  "5246": {
+    "nome": "HUB ADEGA - 5082",
+    "cidade": "SAO JOSE DOS CAMPOS"
+  },
+  "5249": {
+    "nome": "HUB ADEGA - 5085",
+    "cidade": "CAMPINAS"
+  },
+  "5269": {
+    "nome": "HUB ADEGA - 5094",
+    "cidade": "SANTOS"
+  },
+  "5409": {
+    "nome": "MPA ALPHAVILLE CAMP",
+    "cidade": "CAMPINAS"
+  },
+  "5410": {
+    "nome": "HUB ADEGA - 5109",
+    "cidade": "SANTOS"
+  },
+  "5430": {
+    "nome": "MPA REI ALBERTO I",
+    "cidade": "SANTOS"
+  },
+  "5573": {
+    "nome": "MPA GENERAL RONDON",
+    "cidade": "GUARUJA"
+  },
+  "5579": {
+    "nome": "PO BELAS ARTES",
+    "cidade": "ITANHAEM"
+  },
+  "5657": {
+    "nome": "CIA BRASILEIRA DE DISTRIBUICAO",
+    "cidade": "TAUBATE"
+  },
+  "5659": {
+    "nome": "EX LEME",
+    "cidade": "LEME"
+  },
+  "5660": {
+    "nome": "EX PORTO FERREIRA",
+    "cidade": "PORTO FERREIRA"
+  },
+  "5670": {
+    "nome": "CIA BRASILEIRA DE DISTRIBUICAO",
+    "cidade": "MOGI DAS CRUZES"
+  },
+  "5672": {
+    "nome": "EX JUNDIAI XV NOVEMB",
+    "cidade": "JUNDIAI"
+  },
+  "5679": {
+    "nome": "EX GUARUJA/AD BARROS",
+    "cidade": "GUARUJA"
+  },
+  "5680": {
+    "nome": "EX SANTOS CONS NEBIA",
+    "cidade": "SANTOS"
+  },
+  "5681": {
+    "nome": "EX VICENTE CARVALHO",
+    "cidade": "GUARUJA"
+  },
+  "5682": {
+    "nome": "EX V. CARVALHO II",
+    "cidade": "GUARUJA"
+  },
+  "5683": {
+    "nome": "EX BEBEDOURO",
+    "cidade": "BEBEDOURO"
+  },
+  "5698": {
+    "nome": "EX SOROCABA",
+    "cidade": "SOROCABA"
+  },
+  "5701": {
+    "nome": "MPA PQ CAMPOLIM",
+    "cidade": "SOROCABA"
+  },
+  "5703": {
+    "nome": "MPA DAMHA SAO CARLOS",
+    "cidade": "SAO CARLOS"
+  },
+  "5715": {
+    "nome": "EX VALINHOS",
+    "cidade": "VALINHOS"
+  },
+  "5716": {
+    "nome": "EX BROTAS",
+    "cidade": "BROTAS"
+  },
+  "5735": {
+    "nome": "EX MONTE MOR",
+    "cidade": "MONTE MOR"
+  },
+  "5736": {
+    "nome": "EX SAO CARLOS",
+    "cidade": "SAO CARLOS"
+  },
+  "5739": {
+    "nome": "EX GUAIRA",
+    "cidade": "GUAIRA"
+  },
+  "5740": {
+    "nome": "EX OLIMPIA",
+    "cidade": "OLIMPIA"
+  },
+  "5741": {
+    "nome": "EX ORLANDIA",
+    "cidade": "ORLANDIA"
+  },
+  "5744": {
+    "nome": "EX CACAPAVA",
+    "cidade": "CACAPAVA"
+  },
+  "5747": {
+    "nome": "EX GUARA CENTRO",
+    "cidade": "GUARATINGUETA"
+  },
+  "5752": {
+    "nome": "EX MOGI SOCORRO",
+    "cidade": "MOGI DAS CRUZES"
+  },
+  "5762": {
+    "nome": "MPA URBANO SANCHES",
+    "cidade": "MOGI DAS CRUZES"
+  },
+  "5789": {
+    "nome": "MPA MAL FLORIANO PEI",
+    "cidade": "SANTOS"
+  },
+  "5792": {
+    "nome": "CIA BRASILEIRA DE DISTRIBUICAO",
+    "cidade": "UBATUBA"
+  },
+  "5860": {
+    "nome": "MPA TIMBIRAS SANTOS",
+    "cidade": "SANTOS"
+  },
+  "5867": {
+    "nome": "HUB ADEGA - 5140",
+    "cidade": "SANTOS"
+  },
+  "6169": {
+    "nome": "MPA CASSIANO RICARDO",
+    "cidade": "SAO JOSE DOS CAMPOS"
+  },
+  "6767": {
+    "nome": "PA PIRACICABA PAULIS",
+    "cidade": "PIRACICABA"
+  },
+  "7124": {
+    "nome": "HUB ADEGA - 5192",
+    "cidade": "PIRACICABA"
+  },
+  "7160": {
+    "nome": "HUB ADEGA - 5207",
+    "cidade": "SANTOS"
+  },
+  "7185": {
+    "nome": "HUB ADEGA - 5216",
+    "cidade": "ATIBAIA"
+  },
+  "7517": {
+    "nome": "MPA PAIQUERE",
+    "cidade": "VALINHOS"
+  },
+  "7544": {
+    "nome": "HUB ADEGA - 5409",
+    "cidade": "CAMPINAS"
+  },
+  "7597": {
+    "nome": "HUB ADEGA - 5430",
+    "cidade": "SANTOS"
+  },
+  "8463": {
+    "nome": "HUB BARATEIRO - 0069",
+    "cidade": "PRAIA GRANDE"
+  },
+  "8666": {
+    "nome": "PA RIBEIRAO PRETO",
+    "cidade": "RIBEIRAO PRETO"
+  },
+  "8671": {
+    "nome": "HUB BARATEIRO - 1742",
+    "cidade": "SANTOS"
+  },
+  "8883": {
+    "nome": "HUB BARATEIRO - 2080",
+    "cidade": "ITAPETININGA"
+  },
+  "9836": {
+    "nome": "HUB CLUBE EX LJ 0003",
+    "cidade": "RIBEIRAO PRETO"
+  },
+  "9837": {
+    "nome": "HUB CLUBE EX LJ 0014",
+    "cidade": "SOROCABA"
+  },
+  "9838": {
+    "nome": "HUB CLUBE EX LJ 0189",
+    "cidade": "CAMPINAS"
+  },
+  "9844": {
+    "nome": "HUB CLUBE EX LJ 1021",
+    "cidade": "RIBEIRAO PRETO"
+  },
+  "9846": {
+    "nome": "HUB CLUBE EX LJ 1175",
+    "cidade": "SAO JOSE DOS CAMPOS"
+  },
+  "9847": {
+    "nome": "HUB CLUBE EX LJ 1182",
+    "cidade": "ARARAQUARA"
+  },
+  "9861": {
+    "nome": "HUB CLUBE EX LJ 2373",
+    "cidade": "CAMPINAS"
+  },
+  "9865": {
+    "nome": "HUB CLUBE EX LJ 2465",
+    "cidade": "CAMPINAS"
+  },
+  "9876": {
+    "nome": "PRECO CLUBE EX - SP",
+    "cidade": "RIBEIRAO PRETO"
+  }
+}
