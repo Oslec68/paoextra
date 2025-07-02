@@ -121,40 +121,7 @@ footer button{flex:1}
 </section>
 
 <section>
-  <button type="button" class="btn-toggle" onclick="toggleChecklist()">📋 Checklist <span id="badge-check">(0)</span></button>
-  
-  <div id="checklist" class="hidden">
-    <div id="lista-checklist" style="margin-top:10px">
-      <div class="checkbox-item">
-        <input type="checkbox" onchange="contarChecklist()">
-        <span class="texto">Ruptura</span>
-      </div>
-      <div class="checkbox-item">
-        <input type="checkbox" onchange="contarChecklist()">
-        <span class="texto">Preço errado</span>
-      </div>
-      <div class="checkbox-item">
-        <input type="checkbox" onchange="contarChecklist()">
-        <span class="texto">Layout inadequado</span>
-      </div>
-      <div class="checkbox-item">
-        <input type="checkbox" onchange="contarChecklist()">
-        <span class="texto">Limpeza</span>
-      </div>
-      <div class="checkbox-item">
-        <input type="checkbox" onchange="contarChecklist()">
-        <span class="texto">Atendimento</span>
-      </div>
-      <div class="checkbox-item">
-        <input type="checkbox" onchange="contarChecklist()">
-        <span class="texto">Exposição</span>
-      </div>
-    </div>
-    <div style="display:flex;gap:10px;margin-top:15px">
-      <input id="novoItem" placeholder="Adicionar novo item" style="flex:1">
-      <button type="button" onclick="adicionarItem()" style="padding:10px 15px;background:#28a745;color:white;border:none;border-radius:6px;font-size:12px;font-weight:bold">+ ADD</button>
-    </div>
-  </div>
+
 </section>
 
 <section>
@@ -171,7 +138,40 @@ footer button{flex:1}
 </section>
 
 <div id="status"></div>
+<div id="checklist" class="hidden">
+  <div id="lista-checklist" style="margin-top:10px">
+    <div class="checkbox-item">
+      <input type="checkbox" onchange="contarChecklist()">
+      <span class="texto">🔴 Ruptura</span>
+    </div>
+    <div class="checkbox-item">
+      <input type="checkbox" onchange="contarChecklist()">
+      <span class="texto">🟡 Preço errado</span>
+    </div>
+    <div class="checkbox-item">
+      <input type="checkbox" onchange="contarChecklist()">
+      <span class="texto">🟡 Layout inadequado</span>
+    </div>
+    <div class="checkbox-item">
+      <input type="checkbox" onchange="contarChecklist()">
+      <span class="texto">🟡 Limpeza</span>
+    </div>
+    <div class="checkbox-item">
+      <input type="checkbox" onchange="contarChecklist()">
+      <span class="texto">🟢 Atendimento</span>
+    </div>
+    <div class="checkbox-item">
+      <input type="checkbox" onchange="contarChecklist()">
+      <span class="texto">🟢 Exposição</span>
+    </div>
+  </div>
 
+  <div style="display:flex;gap:10px;margin-top:15px">
+    <input id="novoItem" placeholder="Adicionar novo item" style="flex:1">
+    <button type="button" onclick="adicionarItem()" style="padding:10px 15px;background:#28a745;color:white;border:none;border-radius:6px;font-size:12px;font-weight:bold">+ ADD</button>
+  </div>
+</div>
+</section>
 <footer>
   <button type="button" class="btn-limpar" onclick="limpar()">🗑️ Limpar</button>
   <button type="button" class="btn-finalizar" onclick="finalizar()">✅ Finalizar</button>
