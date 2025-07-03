@@ -65,18 +65,29 @@ button{padding:12px 20px;font-size:14px;font-weight:bold;border:none;border-radi
   font-size:24px;
   cursor:pointer;
   transition:all 0.2s ease;
-  padding:4px;
+  padding:6px;
   border-radius:50%;
   user-select:none;
+  border:2px solid transparent;
+  background:transparent;
 }
 .emoji:hover{
   transform:scale(1.2);
   background:rgba(0,0,0,0.1);
 }
 .emoji.selecionado{
-  outline:3px solid #007bff;
-  background:#e3f2fd;
-  transform:scale(1.1);
+  border:3px solid #007bff !important;
+  background:#e3f2fd !important;
+  transform:scale(1.1) !important;
+  box-shadow:0 2px 8px rgba(0,123,255,0.3) !important;
+}
+
+/* Campo de situação com microfone */
+.situacao-container{
+  position:relative;
+  flex:1;
+  flex-basis:100%;
+  margin-top:8px;
 }
 .chk-item .situacao-field{
   flex:1;
@@ -88,7 +99,7 @@ button{padding:12px 20px;font-size:14px;font-weight:bold;border:none;border-radi
   background:#fff;
   margin:0;
   flex-basis:100%;
-  margin-top:8px;
+  margin-top:0;
   position:relative;
 }
 .chk-item .situacao-field:focus{
@@ -99,14 +110,6 @@ button{padding:12px 20px;font-size:14px;font-weight:bold;border:none;border-radi
 .chk-item .situacao-field::placeholder{
   color:#999;
   font-style:italic;
-}
-
-/* Campo de situação com microfone */
-.situacao-container{
-  position:relative;
-  flex:1;
-  flex-basis:100%;
-  margin-top:8px;
 }
 .mic-btn{
   position:absolute;
@@ -344,12 +347,15 @@ footer button{flex:1}
 </section>
 
 <section>
-  <label>Fotos</label>
+  <label id="foto-label">Fotos</label>
   <div style="display:flex;gap:10px;align-items:center">
     <input type="file" id="fotos" accept="image/*" multiple style="flex:1">
     <button type="button" onclick="abrirCamera()" style="padding:10px 15px;background:#007bff;color:white;border:none;border-radius:6px;font-size:12px;font-weight:bold">📷 Câmera</button>
   </div>
   <input type="file" id="camera" accept="image/*" capture="environment" style="display:none">
+  <small style="color:#666;font-size:11px;margin-top:5px;display:block">
+    📁 "Escolher arquivos" = Galeria • 📷 "Câmera" = Foto nova
+  </small>
 </section>
 
 <div id="status"></div>
@@ -508,6 +514,59 @@ function contarMetricas() {
   document.getElementById('badge-metrics').textContent = `(${count})`;
 }
 
+function contarChecklist() {
+  const checked = document.querySelectorAll('#lista input[type="checkbox"]:checked').length;
+  document.getElementById('badge-check').textContent = `(${checked})`;
+}
+
+// FUNÇÃO PARA SELECIONAR EMOJI
+function selecionarEmoji(el) {
+  console.log('🎯 Emoji clicado:', el.textContent);
+  
+  // Encontra o grupo de emojis da MESMA linha e remove seleção de todos DA MESMA LINHA
+  const grupo = el.parentElement;
+  grupo.querySelectorAll('.emoji').forEach(e => e.classList.remove('selecionado'));
+  
+  // Adiciona seleção no emoji clicado
+  el.classList.add('selecionado');
+  
+  // Marca automaticamente o checkbox da mesma linha
+  const item = el.closest('.chk-item');
+  const checkbox = item.querySelector('input[type="checkbox"]');
+  checkbox.checked = true;
+  
+  // Atualiza contador
+  contarChecklist();
+  
+  console.log('✅ Emoji selecionado com sucesso');
+}
+
+function adicionarItem() {
+  const txt = document.getElementById('novo').value.trim();
+  if (!txt) return;
+  
+  const novoItem = document.createElement('div');
+  novoItem.className = 'chk-item';
+  
+  novoItem.innerHTML = `
+    <input type="checkbox" value="${txt}" onchange="contarChecklist()">
+    <span class="item-label">${txt}</span>
+    <div class="emoji-group">
+      <span class="emoji" onclick="selecionarEmoji(this)">🟢</span>
+      <span class="emoji" onclick="selecionarEmoji(this)">🟡</span>
+      <span class="emoji" onclick="selecionarEmoji(this)">🔴</span>
+    </div>
+    <div class="situacao-container">
+      <input type="text" class="situacao-field" placeholder="Descreva a situação encontrada...">
+      <button type="button" class="mic-btn" onclick="iniciarDitado(this)">🎤</button>
+    </div>
+  `;
+  
+  document.getElementById('lista').appendChild(novoItem);
+  document.getElementById('novo').value = '';
+  contarChecklist();
+}
+
 // FUNÇÃO DE RECONHECIMENTO DE VOZ
 let recognition = null;
 
@@ -647,67 +706,17 @@ function finalizarDitado(botao, campo, originalPlaceholder) {
   recognition = null;
 }
 
-function contarChecklist() {
-  const checked = document.querySelectorAll('#lista input[type="checkbox"]:checked').length;
-  document.getElementById('badge-check').textContent = `(${checked})`;
-}
-
-// FUNÇÃO SIMPLES PARA SELECIONAR EMOJI
-function selecionarEmoji(el) {
-  console.log('🎯 Emoji clicado:', el.textContent);
-  
-  // Encontra o grupo de emojis e remove seleção de todos
-  const grupo = el.parentElement;
-  grupo.querySelectorAll('.emoji').forEach(e => e.classList.remove('selecionado'));
-  
-  // Adiciona seleção no emoji clicado
-  el.classList.add('selecionado');
-  
-  // Marca automaticamente o checkbox
-  const item = el.closest('.chk-item');
-  const checkbox = item.querySelector('input[type="checkbox"]');
-  checkbox.checked = true;
-  
-  // Atualiza contador
-  contarChecklist();
-  
-  console.log('✅ Emoji selecionado com sucesso');
-}
-
-function adicionarItem() {
-  const txt = document.getElementById('novo').value.trim();
-  if (!txt) return;
-  
-  const novoItem = document.createElement('div');
-  novoItem.className = 'chk-item';
-  
-  novoItem.innerHTML = `
-    <input type="checkbox" value="${txt}" onchange="contarChecklist()">
-    <span class="item-label">${txt}</span>
-    <div class="emoji-group">
-      <span class="emoji" onclick="selecionarEmoji(this)">🟢</span>
-      <span class="emoji" onclick="selecionarEmoji(this)">🟡</span>
-      <span class="emoji" onclick="selecionarEmoji(this)">🔴</span>
-    </div>
-    <div class="situacao-container">
-      <input type="text" class="situacao-field" placeholder="Descreva a situação encontrada...">
-      <button type="button" class="mic-btn" onclick="iniciarDitado(this)">🎤</button>
-    </div>
-  `;
-  
-  document.getElementById('lista').appendChild(novoItem);
-  document.getElementById('novo').value = '';
-  contarChecklist();
-}
-
-// Remove a função setStatus que não precisamos mais
-
 function abrirCamera() {
+  console.log('📷 Botão câmera clicado');
+  
   // Input específico para câmera
   const inputCamera = document.getElementById('camera');
+  console.log('📷 Input câmera encontrado:', inputCamera);
+  
+  // Força o click
   inputCamera.click();
   
-  console.log('📷 Abrindo câmera para nova foto');
+  console.log('📷 Click na câmera executado');
 }
 
 function formatarMoeda(input) {
@@ -718,6 +727,25 @@ function formatarMoeda(input) {
       style: 'currency',
       currency: 'BRL'
     });
+  }
+}
+
+// FUNÇÃO PARA ATUALIZAR CONTADOR DE FOTOS
+function updateFotoCounter() {
+  const fotosInput = document.getElementById('fotos');
+  const count = fotosInput.files.length;
+  
+  // Atualiza o label com ID específico
+  const fotoLabel = document.getElementById('foto-label');
+  if (fotoLabel) {
+    fotoLabel.textContent = count > 0 ? `Fotos (${count} selecionadas)` : 'Fotos';
+  }
+  
+  console.log('📷 Contador atualizado:', count, 'fotos');
+  
+  // Lista os nomes das fotos para debug
+  for (let i = 0; i < fotosInput.files.length; i++) {
+    console.log(`📷 Foto ${i + 1}:`, fotosInput.files[i].name, fotosInput.files[i].size, 'bytes');
   }
 }
 
@@ -872,6 +900,7 @@ function limpar() {
     document.getElementById('badge-metrics').textContent = '(0)';
     document.getElementById('status').innerHTML = '';
     updateWeather('CAMPINAS');
+    updateFotoCounter();
   }
 }
 
@@ -901,28 +930,42 @@ document.addEventListener('DOMContentLoaded', function() {
     const fotosInput = document.getElementById('fotos');
     const cameraFiles = this.files;
     
+    console.log('📷 Câmera capturou:', cameraFiles.length, 'fotos');
+    console.log('📷 Fotos já existentes:', fotosInput.files.length);
+    
     if (cameraFiles.length > 0) {
-      // Cria um novo FileList combinando fotos existentes + nova da câmera
+      // Cria um novo DataTransfer para combinar arquivos
       const dt = new DataTransfer();
       
-      // Adiciona fotos já existentes
+      // Adiciona fotos já existentes no input principal
       for (let i = 0; i < fotosInput.files.length; i++) {
         dt.items.add(fotosInput.files[i]);
+        console.log('📷 Adicionando foto existente:', fotosInput.files[i].name);
       }
       
       // Adiciona nova foto da câmera
       for (let i = 0; i < cameraFiles.length; i++) {
         dt.items.add(cameraFiles[i]);
+        console.log('📷 Adicionando foto da câmera:', cameraFiles[i].name);
       }
       
       // Atualiza o input principal
       fotosInput.files = dt.files;
       
-      console.log('📷 Foto adicionada! Total:', fotosInput.files.length, 'fotos');
+      console.log('📷 Total de fotos após sincronização:', fotosInput.files.length);
+      
+      // Mostra feedback visual
+      updateFotoCounter();
       
       // Limpa o input da câmera
       this.value = '';
     }
+  });
+  
+  // Adiciona contador para fotos da galeria também
+  document.getElementById('fotos').addEventListener('change', function() {
+    console.log('📷 Fotos selecionadas da galeria:', this.files.length);
+    updateFotoCounter();
   });
 });
 
