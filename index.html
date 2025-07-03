@@ -178,7 +178,11 @@ footer button{flex:1}
   <button type="button" class="btn-limpar" onclick="limpar()">🗑️ Limpar</button>
   <button type="button" class="btn-finalizar" onclick="finalizar()">✅ Finalizar</button>
 </footer>
-
+<div class="checkbox-item">
+  <input type="checkbox" onchange="contarChecklist()">
+  <span class="emoji-status" onclick="trocarEmoji(this)">🔴</span>
+  <span class="texto">Ruptura</span>
+</div>
 <script>
 // BANCO DE LOJAS GPA
 const lojas = {
