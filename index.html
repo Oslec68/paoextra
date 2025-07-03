@@ -55,51 +55,28 @@ button{padding:12px 20px;font-size:14px;font-weight:bold;border:none;border-radi
   min-width:120px;
   font-size:14px;
 }
-.status-emojis{
+.emoji-group{
   display:flex;
   gap:8px;
   align-items:center;
   flex-shrink:0;
 }
-.emoji-btn{
-  width:40px;
-  height:40px;
-  border:2px solid transparent;
-  background:transparent;
+.emoji{
+  font-size:24px;
   cursor:pointer;
-  border-radius:8px;
-  font-size:20px;
-  margin:0;
-  display:flex;
-  align-items:center;
-  justify-content:center;
   transition:all 0.2s ease;
-  position:relative;
+  padding:4px;
+  border-radius:50%;
+  user-select:none;
 }
-.emoji-btn:hover{
-  background:#e9ecef;
-  transform:scale(1.05);
+.emoji:hover{
+  transform:scale(1.2);
+  background:rgba(0,0,0,0.1);
 }
-.emoji-btn.selected{
-  border:2px solid #007bff;
+.emoji.selecionado{
+  outline:3px solid #007bff;
   background:#e3f2fd;
   transform:scale(1.1);
-}
-.emoji-btn.selected::after{
-  content:'•';
-  position:absolute;
-  bottom:-2px;
-  right:-2px;
-  width:12px;
-  height:12px;
-  background:#007bff;
-  color:white;
-  border-radius:50%;
-  font-size:8px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-weight:bold;
 }
 .chk-item .situacao-field{
   flex:1;
@@ -228,64 +205,64 @@ footer button{flex:1}
     <section>
       <div class="chk-group" id="lista">
         <div class="chk-item">
-          <input type="checkbox" value="Ruptura">
-          <span>Ruptura</span>
-          <div class="status-emojis">
-            <button class="emoji-btn" onclick="setStatus(this, 'green')" data-status="green">🟢</button>
-            <button class="emoji-btn" onclick="setStatus(this, 'yellow')" data-status="yellow">🟡</button>
-            <button class="emoji-btn" onclick="setStatus(this, 'red')" data-status="red">🔴</button>
+          <input type="checkbox" value="Ruptura" onchange="contarChecklist()">
+          <span class="item-label">Ruptura</span>
+          <div class="emoji-group">
+            <span class="emoji" onclick="selecionarEmoji(this)">🟢</span>
+            <span class="emoji" onclick="selecionarEmoji(this)">🟡</span>
+            <span class="emoji" onclick="selecionarEmoji(this)">🔴</span>
           </div>
-          <input type="text" class="obs-field" placeholder="Descreva o problema...">
+          <input type="text" class="situacao-field" placeholder="Ex: 5% falta açúcar, 10% falta arroz">
         </div>
         <div class="chk-item">
-          <input type="checkbox" value="Preço errado">
-          <span>Preço errado</span>
-          <div class="status-emojis">
-            <button class="emoji-btn" onclick="setStatus(this, 'green')" data-status="green">🟢</button>
-            <button class="emoji-btn" onclick="setStatus(this, 'yellow')" data-status="yellow">🟡</button>
-            <button class="emoji-btn" onclick="setStatus(this, 'red')" data-status="red">🔴</button>
+          <input type="checkbox" value="Preço errado" onchange="contarChecklist()">
+          <span class="item-label">Preço errado</span>
+          <div class="emoji-group">
+            <span class="emoji" onclick="selecionarEmoji(this)">🟢</span>
+            <span class="emoji" onclick="selecionarEmoji(this)">🟡</span>
+            <span class="emoji" onclick="selecionarEmoji(this)">🔴</span>
           </div>
-          <input type="text" class="obs-field" placeholder="Descreva o problema...">
+          <input type="text" class="situacao-field" placeholder="Ex: Leite R$ 6,50 deveria ser R$ 5,90">
         </div>
         <div class="chk-item">
-          <input type="checkbox" value="Layout inadequado">
-          <span>Layout inadequado</span>
-          <div class="status-emojis">
-            <button class="emoji-btn" onclick="setStatus(this, 'green')" data-status="green">🟢</button>
-            <button class="emoji-btn" onclick="setStatus(this, 'yellow')" data-status="yellow">🟡</button>
-            <button class="emoji-btn" onclick="setStatus(this, 'red')" data-status="red">🔴</button>
+          <input type="checkbox" value="Layout inadequado" onchange="contarChecklist()">
+          <span class="item-label">Layout inadequado</span>
+          <div class="emoji-group">
+            <span class="emoji" onclick="selecionarEmoji(this)">🟢</span>
+            <span class="emoji" onclick="selecionarEmoji(this)">🟡</span>
+            <span class="emoji" onclick="selecionarEmoji(this)">🔴</span>
           </div>
-          <input type="text" class="obs-field" placeholder="Descreva o problema...">
+          <input type="text" class="situacao-field" placeholder="Ex: Produtos mal organizados na gôndola">
         </div>
         <div class="chk-item">
-          <input type="checkbox" value="Limpeza">
-          <span>Limpeza</span>
-          <div class="status-emojis">
-            <button class="emoji-btn" onclick="setStatus(this, 'green')" data-status="green">🟢</button>
-            <button class="emoji-btn" onclick="setStatus(this, 'yellow')" data-status="yellow">🟡</button>
-            <button class="emoji-btn" onclick="setStatus(this, 'red')" data-status="red">🔴</button>
+          <input type="checkbox" value="Limpeza" onchange="contarChecklist()">
+          <span class="item-label">Limpeza</span>
+          <div class="emoji-group">
+            <span class="emoji" onclick="selecionarEmoji(this)">🟢</span>
+            <span class="emoji" onclick="selecionarEmoji(this)">🟡</span>
+            <span class="emoji" onclick="selecionarEmoji(this)">🔴</span>
           </div>
-          <input type="text" class="obs-field" placeholder="Descreva o problema...">
+          <input type="text" class="situacao-field" placeholder="Ex: Chão sujo no corredor 3, prateleiras empoeiradas">
         </div>
         <div class="chk-item">
-          <input type="checkbox" value="Atendimento">
-          <span>Atendimento</span>
-          <div class="status-emojis">
-            <button class="emoji-btn" onclick="setStatus(this, 'green')" data-status="green">🟢</button>
-            <button class="emoji-btn" onclick="setStatus(this, 'yellow')" data-status="yellow">🟡</button>
-            <button class="emoji-btn" onclick="setStatus(this, 'red')" data-status="red">🔴</button>
+          <input type="checkbox" value="Atendimento" onchange="contarChecklist()">
+          <span class="item-label">Atendimento</span>
+          <div class="emoji-group">
+            <span class="emoji" onclick="selecionarEmoji(this)">🟢</span>
+            <span class="emoji" onclick="selecionarEmoji(this)">🟡</span>
+            <span class="emoji" onclick="selecionarEmoji(this)">🔴</span>
           </div>
-          <input type="text" class="obs-field" placeholder="Descreva o problema...">
+          <input type="text" class="situacao-field" placeholder="Ex: Funcionários sem uniforme, atendimento lento">
         </div>
         <div class="chk-item">
-          <input type="checkbox" value="Exposição">
-          <span>Exposição</span>
-          <div class="status-emojis">
-            <button class="emoji-btn" onclick="setStatus(this, 'green')" data-status="green">🟢</button>
-            <button class="emoji-btn" onclick="setStatus(this, 'yellow')" data-status="yellow">🟡</button>
-            <button class="emoji-btn" onclick="setStatus(this, 'red')" data-status="red">🔴</button>
+          <input type="checkbox" value="Exposição" onchange="contarChecklist()">
+          <span class="item-label">Exposição</span>
+          <div class="emoji-group">
+            <span class="emoji" onclick="selecionarEmoji(this)">🟢</span>
+            <span class="emoji" onclick="selecionarEmoji(this)">🟡</span>
+            <span class="emoji" onclick="selecionarEmoji(this)">🔴</span>
           </div>
-          <input type="text" class="obs-field" placeholder="Descreva o problema...">
+          <input type="text" class="situacao-field" placeholder="Ex: Produtos vencidos expostos, falta iluminação">
         </div>
       </div>
       <div class="row">
@@ -470,60 +447,26 @@ function contarChecklist() {
   document.getElementById('badge-check').textContent = `(${checked})`;
 }
 
-// FUNÇÃO PARA MARCAR EMOJI - COM STOP PROPAGATION
-function marcarEmoji(button, event) {
-  // IMPEDE que o clique se propague para outros elementos
-  if (event) {
-    event.stopPropagation();
-    event.preventDefault();
-  }
+// FUNÇÃO SIMPLES PARA SELECIONAR EMOJI
+function selecionarEmoji(el) {
+  console.log('🎯 Emoji clicado:', el.textContent);
   
-  console.log('🎯 Clicou no emoji!', button);
+  // Encontra o grupo de emojis e remove seleção de todos
+  const grupo = el.parentElement;
+  grupo.querySelectorAll('.emoji').forEach(e => e.classList.remove('selecionado'));
   
-  try {
-    const item = button.closest('.chk-item');
-    const allButtons = item.querySelectorAll('.emoji-btn');
-    const checkbox = item.querySelector('input[type="checkbox"]');
-    
-    console.log('📦 Item:', item);
-    console.log('☑️ Checkbox:', checkbox);
-    console.log('🔘 Botão já selecionado?', button.classList.contains('selected'));
-    
-    // Se o botão já está selecionado, desmarca (toggle off)
-    if (button.classList.contains('selected')) {
-      button.classList.remove('selected');
-      button.style.border = '2px solid transparent';
-      button.style.background = 'transparent';
-      button.style.transform = 'scale(1)';
-      checkbox.checked = false;
-      console.log('🔄 Desmarcado');
-    } else {
-      // Remove seleção de todos os botões do item
-      allButtons.forEach(btn => {
-        btn.classList.remove('selected');
-        btn.style.border = '2px solid transparent';
-        btn.style.background = 'transparent';
-        btn.style.transform = 'scale(1)';
-      });
-      
-      // Marca o botão clicado com estilo forçado
-      button.classList.add('selected');
-      button.style.border = '2px solid #007bff';
-      button.style.background = '#e3f2fd';
-      button.style.transform = 'scale(1.1)';
-      checkbox.checked = true;
-      console.log('✅ Marcado:', button.dataset.status);
-    }
-    
-    // Atualiza contador
-    contarChecklist();
-    
-    // IMPEDE qualquer ação adicional
-    return false;
-    
-  } catch (error) {
-    console.error('❌ Erro na função marcarEmoji:', error);
-  }
+  // Adiciona seleção no emoji clicado
+  el.classList.add('selecionado');
+  
+  // Marca automaticamente o checkbox
+  const item = el.closest('.chk-item');
+  const checkbox = item.querySelector('input[type="checkbox"]');
+  checkbox.checked = true;
+  
+  // Atualiza contador
+  contarChecklist();
+  
+  console.log('✅ Emoji selecionado com sucesso');
 }
 
 function adicionarItem() {
@@ -536,10 +479,10 @@ function adicionarItem() {
   novoItem.innerHTML = `
     <input type="checkbox" value="${txt}" onchange="contarChecklist()">
     <span class="item-label">${txt}</span>
-    <div class="status-emojis">
-      <button class="emoji-btn" onclick="marcarEmoji(this, event)" data-status="green">🟢</button>
-      <button class="emoji-btn" onclick="marcarEmoji(this, event)" data-status="yellow">🟡</button>
-      <button class="emoji-btn" onclick="marcarEmoji(this, event)" data-status="red">🔴</button>
+    <div class="emoji-group">
+      <span class="emoji" onclick="selecionarEmoji(this)">🟢</span>
+      <span class="emoji" onclick="selecionarEmoji(this)">🟡</span>
+      <span class="emoji" onclick="selecionarEmoji(this)">🔴</span>
     </div>
     <input type="text" class="situacao-field" placeholder="Descreva a situação encontrada...">
   `;
@@ -584,15 +527,14 @@ async function finalizar() {
     .map(item => {
       const nome = item.querySelector('.item-label').textContent;
       const situacao = item.querySelector('.situacao-field').value;
-      const emojiSelecionado = item.querySelector('.emoji-btn.selected');
+      const emojiSelecionado = item.querySelector('.emoji.selecionado');
       
       let status = '';
       if (emojiSelecionado) {
-        const tipoStatus = emojiSelecionado.dataset.status;
-        status = tipoStatus === 'green' ? '🟢' : tipoStatus === 'yellow' ? '🟡' : '🔴';
+        status = emojiSelecionado.textContent + ' ';
       }
       
-      let linha = `${status} ${nome}`;
+      let linha = `${status}${nome}`;
       if (situacao) linha += `: ${situacao}`;
       
       return linha;
@@ -637,7 +579,7 @@ function limpar() {
     });
     
     // Remove seleções dos emojis
-    document.querySelectorAll('.emoji-btn').forEach(btn => btn.classList.remove('selected'));
+    document.querySelectorAll('.emoji').forEach(emoji => emoji.classList.remove('selecionado'));
     
     document.getElementById('checklistSec').style.display = 'none';
     document.getElementById('badge-check').textContent = '(0)';
@@ -652,15 +594,17 @@ function updateClock() {
 }
 
 // EVENTO PARA BUSCA DE LOJA
-document.getElementById('cod').addEventListener('input', buscarLoja);
-
-// EVENTOS PARA MÉTRICAS
-document.getElementById('venda').addEventListener('input', contarMetricas);
-document.getElementById('venda').addEventListener('blur', function() { formatarMoeda(this); });
-document.getElementById('variacao').addEventListener('input', contarMetricas);
-document.getElementById('perda').addEventListener('input', contarMetricas);
-document.getElementById('perda').addEventListener('blur', function() { formatarMoeda(this); });
-document.getElementById('ruptura').addEventListener('input', contarMetricas);
+document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById('cod').addEventListener('input', buscarLoja);
+  
+  // EVENTOS PARA MÉTRICAS
+  document.getElementById('venda').addEventListener('input', contarMetricas);
+  document.getElementById('venda').addEventListener('blur', function() { formatarMoeda(this); });
+  document.getElementById('variacao').addEventListener('input', contarMetricas);
+  document.getElementById('perda').addEventListener('input', contarMetricas);
+  document.getElementById('perda').addEventListener('blur', function() { formatarMoeda(this); });
+  document.getElementById('ruptura').addEventListener('input', contarMetricas);
+});
 
 // INICIALIZAÇÃO
 setInterval(updateClock, 1000);
@@ -668,25 +612,7 @@ updateClock();
 updateWeather('CAMPINAS');
 
 console.log('✅ Sistema iniciado com', Object.keys(lojas).length, 'lojas');
-
-// TESTE SE OS BOTÕES EXISTEM
-setTimeout(() => {
-  const botoes = document.querySelectorAll('.emoji-btn');
-  console.log('🔍 Encontrados', botoes.length, 'botões emoji');
-  
-  if (botoes.length > 0) {
-    console.log('✅ Botões encontrados, funções devem funcionar');
-  } else {
-    console.log('❌ Nenhum botão encontrado!');
-  }
-}, 1000);
-
-// ALERTA VISUAL PARA TESTAR
-window.testarEmoji = function() {
-  alert('JavaScript está funcionando!');
-};
-
-console.log('🧪 Para testar: digite testarEmoji() no console');
+console.log('✅ Função selecionarEmoji() carregada - SEM setStatus');
 </script>
 </body>
 </html>
