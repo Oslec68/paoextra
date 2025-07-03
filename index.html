@@ -470,25 +470,60 @@ function contarChecklist() {
   document.getElementById('badge-check').textContent = `(${checked})`;
 }
 
-// FUNÇÃO PARA MARCAR EMOJI
-function marcarEmoji(button) {
-  const item = button.closest('.chk-item');
-  const allButtons = item.querySelectorAll('.emoji-btn');
-  const checkbox = item.querySelector('input[type="checkbox"]');
+// FUNÇÃO PARA MARCAR EMOJI - COM STOP PROPAGATION
+function marcarEmoji(button, event) {
+  // IMPEDE que o clique se propague para outros elementos
+  if (event) {
+    event.stopPropagation();
+    event.preventDefault();
+  }
   
-  // Remove seleção de todos os botões do item
-  allButtons.forEach(btn => btn.classList.remove('selected'));
+  console.log('🎯 Clicou no emoji!', button);
   
-  // Marca o botão clicado
-  button.classList.add('selected');
-  
-  // Marca automaticamente o checkbox
-  checkbox.checked = true;
-  
-  // Atualiza contador
-  contarChecklist();
-  
-  console.log('✅ Emoji marcado:', button.dataset.status);
+  try {
+    const item = button.closest('.chk-item');
+    const allButtons = item.querySelectorAll('.emoji-btn');
+    const checkbox = item.querySelector('input[type="checkbox"]');
+    
+    console.log('📦 Item:', item);
+    console.log('☑️ Checkbox:', checkbox);
+    console.log('🔘 Botão já selecionado?', button.classList.contains('selected'));
+    
+    // Se o botão já está selecionado, desmarca (toggle off)
+    if (button.classList.contains('selected')) {
+      button.classList.remove('selected');
+      button.style.border = '2px solid transparent';
+      button.style.background = 'transparent';
+      button.style.transform = 'scale(1)';
+      checkbox.checked = false;
+      console.log('🔄 Desmarcado');
+    } else {
+      // Remove seleção de todos os botões do item
+      allButtons.forEach(btn => {
+        btn.classList.remove('selected');
+        btn.style.border = '2px solid transparent';
+        btn.style.background = 'transparent';
+        btn.style.transform = 'scale(1)';
+      });
+      
+      // Marca o botão clicado com estilo forçado
+      button.classList.add('selected');
+      button.style.border = '2px solid #007bff';
+      button.style.background = '#e3f2fd';
+      button.style.transform = 'scale(1.1)';
+      checkbox.checked = true;
+      console.log('✅ Marcado:', button.dataset.status);
+    }
+    
+    // Atualiza contador
+    contarChecklist();
+    
+    // IMPEDE qualquer ação adicional
+    return false;
+    
+  } catch (error) {
+    console.error('❌ Erro na função marcarEmoji:', error);
+  }
 }
 
 function adicionarItem() {
@@ -502,9 +537,9 @@ function adicionarItem() {
     <input type="checkbox" value="${txt}" onchange="contarChecklist()">
     <span class="item-label">${txt}</span>
     <div class="status-emojis">
-      <button class="emoji-btn" onclick="marcarEmoji(this)" data-status="green">🟢</button>
-      <button class="emoji-btn" onclick="marcarEmoji(this)" data-status="yellow">🟡</button>
-      <button class="emoji-btn" onclick="marcarEmoji(this)" data-status="red">🔴</button>
+      <button class="emoji-btn" onclick="marcarEmoji(this, event)" data-status="green">🟢</button>
+      <button class="emoji-btn" onclick="marcarEmoji(this, event)" data-status="yellow">🟡</button>
+      <button class="emoji-btn" onclick="marcarEmoji(this, event)" data-status="red">🔴</button>
     </div>
     <input type="text" class="situacao-field" placeholder="Descreva a situação encontrada...">
   `;
@@ -633,6 +668,25 @@ updateClock();
 updateWeather('CAMPINAS');
 
 console.log('✅ Sistema iniciado com', Object.keys(lojas).length, 'lojas');
+
+// TESTE SE OS BOTÕES EXISTEM
+setTimeout(() => {
+  const botoes = document.querySelectorAll('.emoji-btn');
+  console.log('🔍 Encontrados', botoes.length, 'botões emoji');
+  
+  if (botoes.length > 0) {
+    console.log('✅ Botões encontrados, funções devem funcionar');
+  } else {
+    console.log('❌ Nenhum botão encontrado!');
+  }
+}, 1000);
+
+// ALERTA VISUAL PARA TESTAR
+window.testarEmoji = function() {
+  alert('JavaScript está funcionando!');
+};
+
+console.log('🧪 Para testar: digite testarEmoji() no console');
 </script>
 </body>
 </html>
