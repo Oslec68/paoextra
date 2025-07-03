@@ -35,10 +35,10 @@ button{padding:12px 20px;font-size:14px;font-weight:bold;border:none;border-radi
   display:flex;
   align-items:flex-start;
   gap:10px;
-  padding:10px;
+  padding:15px;
   border:1px solid #e9ecef;
   border-radius:8px;
-  margin-bottom:8px;
+  margin-bottom:10px;
   background:#f8f9fa;
   flex-wrap:wrap;
 }
@@ -47,55 +47,32 @@ button{padding:12px 20px;font-size:14px;font-weight:bold;border:none;border-radi
   height:18px;
   margin:0;
   flex-shrink:0;
+  margin-top:2px;
 }
-.chk-item span{
+.chk-item .item-label{
   flex:1;
   font-weight:500;
   min-width:120px;
+  font-size:14px;
 }
-.status-emojis{
-  display:flex;
-  gap:3px;
-  align-items:center;
-  flex-shrink:0;
-}
-.emoji-btn{
-  width:36px !important;
-  height:36px !important;
-  border:2px solid transparent !important;
-  background:transparent !important;
-  cursor:pointer !important;
-  border-radius:6px !important;
-  font-size:18px !important;
-  margin:0 !important;
-  display:flex !important;
-  align-items:center !important;
-  justify-content:center !important;
-  transition:all 0.2s ease !important;
-  padding:0 !important;
-}
-.emoji-btn:hover{
-  background:#e9ecef !important;
-  transform:scale(1.05) !important;
-}
-.emoji-btn.active{
-  background:#007bff !important;
-  border:2px solid #0056b3 !important;
-  transform:scale(1.1) !important;
-  box-shadow:0 2px 8px rgba(0,123,255,0.5) !important;
-}
-.obs-field{
-  width:100%;
-  margin-top:8px;
-  padding:8px;
+.chk-item .situacao-field{
+  flex:1;
+  min-width:200px;
+  padding:8px 12px;
   border:1px solid #ddd;
-  border-radius:4px;
-  font-size:12px;
-  display:none;
-  flex-basis:100%;
+  border-radius:6px;
+  font-size:13px;
+  background:#fff;
+  margin:0;
 }
-.chk-item.has-red .obs-field{
-  display:block;
+.chk-item .situacao-field:focus{
+  outline:none;
+  border-color:var(--azul);
+  box-shadow:0 0 0 2px rgba(30,58,138,0.1);
+}
+.chk-item .situacao-field::placeholder{
+  color:#999;
+  font-style:italic;
 }
 
 .checkbox-item{display:flex;align-items:center;gap:8px;padding:5px;border-radius:4px;margin-bottom:3px}
@@ -441,38 +418,8 @@ function contarMetricas() {
 }
 
 function contarChecklist() {
-  const checked = document.querySelectorAll('#lista input:checked').length;
+  const checked = document.querySelectorAll('#lista input[type="checkbox"]:checked').length;
   document.getElementById('badge-check').textContent = `(${checked})`;
-}
-
-// FUNÇÃO PRINCIPAL DO STATUS - CORRIGIDA
-function setStatus(button, status) {
-  console.log('🎯 Clicou no botão:', status);
-  
-  const item = button.closest('.chk-item');
-  const allButtons = item.querySelectorAll('.emoji-btn');
-  const checkbox = item.querySelector('input[type="checkbox"]');
-  
-  // Remove active de todos os botões
-  allButtons.forEach(btn => btn.classList.remove('active'));
-  
-  // Adiciona active no botão clicado
-  button.classList.add('active');
-  
-  // Marca o checkbox
-  checkbox.checked = true;
-  
-  // Mostra campo de observação se for vermelho
-  if (status === 'red') {
-    item.classList.add('has-red');
-  } else {
-    item.classList.remove('has-red');
-  }
-  
-  // Atualiza contador
-  contarChecklist();
-  
-  console.log('✅ Status aplicado:', status, 'Checkbox:', checkbox.checked);
 }
 
 function adicionarItem() {
@@ -483,20 +430,17 @@ function adicionarItem() {
   novoItem.className = 'chk-item';
   
   novoItem.innerHTML = `
-    <input type="checkbox" value="${txt}">
-    <span>${txt}</span>
-    <div class="status-emojis">
-      <button class="emoji-btn" onclick="setStatus(this, 'green')" data-status="green">🟢</button>
-      <button class="emoji-btn" onclick="setStatus(this, 'yellow')" data-status="yellow">🟡</button>
-      <button class="emoji-btn" onclick="setStatus(this, 'red')" data-status="red">🔴</button>
-    </div>
-    <input type="text" class="obs-field" placeholder="Descreva o problema...">
+    <input type="checkbox" value="${txt}" onchange="contarChecklist()">
+    <span class="item-label">${txt}</span>
+    <input type="text" class="situacao-field" placeholder="Descreva a situação encontrada...">
   `;
   
   document.getElementById('lista').appendChild(novoItem);
   document.getElementById('novo').value = '';
   contarChecklist();
 }
+
+// Remove a função setStatus que não precisamos mais
 
 function abrirCamera() {
   const input = document.getElementById('fotos');
@@ -525,18 +469,26 @@ async function finalizar() {
     return;
   }
   
-  // Coleta dados do checklist
-  const checklistMarcados = [...document.querySelectorAll('#lista input:checked')]
-    .map(input => input.value)
-    .join(', ') || 'Nenhum';
+  // Coleta dados do checklist com situações
+  const checklistItems = [...document.querySelectorAll('#lista .chk-item')]
+    .filter(item => item.querySelector('input[type="checkbox"]').checked)
+    .map(item => {
+      const nome = item.querySelector('.item-label').textContent;
+      const situacao = item.querySelector('.situacao-field').value;
+      return situacao ? `${nome}: ${situacao}` : nome;
+    });
+  
+  const checklistTexto = checklistItems.length > 0 ? checklistItems.join('\n• ') : 'Nenhum problema encontrado';
   
   // Monta mensagem para Telegram
-  const mensagem = "🛒 *Visita GPA*\n" +
-                  "• Loja: *" + document.getElementById('nome').value + "* (" + codigo + ") – " + document.getElementById('cidade').value + "\n" +
-                  "• Gerente: " + document.getElementById('gerente').value + " – " + document.getElementById('whats').value + "\n" +
-                  "• Usuário: " + usuario + "\n" +
-                  "• Checklist: " + checklistMarcados + "\n" +
-                  "• Obs: " + (document.getElementById('obs').value || '—');
+  const mensagem = "🛒 *Visita GPA*\n\n" +
+                  "🏪 *Loja:* " + document.getElementById('nome').value + " (" + codigo + ")\n" +
+                  "📍 *Cidade:* " + document.getElementById('cidade').value + "\n" +
+                  "👤 *Gerente:* " + (document.getElementById('gerente').value || "—") + "\n" +
+                  "📱 *WhatsApp:* " + (document.getElementById('whats').value || "—") + "\n" +
+                  "🔍 *Auditor:* " + usuario + "\n\n" +
+                  "📋 *Checklist:*\n• " + checklistTexto + "\n\n" +
+                  "📝 *Observações:* " + (document.getElementById('obs').value || "—");
   
   try {
     document.getElementById('status').innerHTML = '<span style="color:blue">📤 Enviando...</span>';
@@ -563,10 +515,6 @@ function limpar() {
       if (el.type === 'checkbox') el.checked = false;
       else el.value = '';
     });
-    
-    // Remove todas as classes active
-    document.querySelectorAll('.emoji-btn').forEach(btn => btn.classList.remove('active'));
-    document.querySelectorAll('.chk-item').forEach(item => item.classList.remove('has-red'));
     
     document.getElementById('checklistSec').style.display = 'none';
     document.getElementById('badge-check').textContent = '(0)';
@@ -597,7 +545,6 @@ updateClock();
 updateWeather('CAMPINAS');
 
 console.log('✅ Sistema iniciado com', Object.keys(lojas).length, 'lojas');
-console.log('✅ Todas as funções carregadas corretamente');
 </script>
 </body>
 </html>
