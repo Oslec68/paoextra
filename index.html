@@ -512,17 +512,34 @@ function contarMetricas() {
 let recognition = null;
 
 function iniciarDitado(botao) {
+  console.log('🎤 Função iniciarDitado chamada');
+  
   // Verifica se o navegador suporta Speech Recognition
   if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
+    console.error('❌ Navegador não suporta Speech Recognition');
     alert('🎤 Seu navegador não suporta reconhecimento de voz. Use Chrome ou Edge.');
     return;
   }
+  
+  console.log('✅ Navegador suporta Speech Recognition');
   
   // Encontra o campo de texto relacionado
   const container = botao.parentElement;
   const campo = container.querySelector('input, textarea');
   
-  if (!campo) return;
+  if (!campo) {
+    console.error('❌ Campo de texto não encontrado');
+    return;
+  }
+  
+  console.log('✅ Campo encontrado:', campo.placeholder);
+  
+  // Verifica se já está gravando
+  if (recognition && recognition.state === 'started') {
+    console.log('🛑 Parando gravação existente');
+    recognition.stop();
+    return;
+  }
   
   // Configura o reconhecimento de voz
   const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -533,71 +550,93 @@ function iniciarDitado(botao) {
   recognition.interimResults = false;
   recognition.maxAlternatives = 1;
   
+  console.log('🎤 Configuração criada');
+  
   // Visual de gravando
   botao.classList.add('recording');
   botao.textContent = '⏹️';
-  campo.placeholder = 'Falando... clique no microfone para parar';
+  const originalPlaceholder = campo.placeholder;
+  campo.placeholder = '🎤 Falando... clique no microfone para parar';
   
-  console.log('🎤 Iniciando reconhecimento de voz...');
+  console.log('🎤 Visual atualizado, iniciando reconhecimento...');
   
   recognition.onstart = function() {
-    console.log('🎤 Reconhecimento iniciado');
+    console.log('✅ Reconhecimento INICIADO com sucesso');
   };
   
   recognition.onresult = function(event) {
     const texto = event.results[0][0].transcript;
+    const confianca = event.results[0][0].confidence;
     console.log('🎤 Texto reconhecido:', texto);
+    console.log('🎤 Confiança:', confianca);
     
-    // Adiciona o texto ao campo (ou substitui se estava vazio)
+    // Adiciona o texto ao campo
     if (campo.value.trim() === '') {
       campo.value = texto;
     } else {
       campo.value += ' ' + texto;
     }
     
-    finalizarDitado(botao, campo);
+    finalizarDitado(botao, campo, originalPlaceholder);
   };
   
   recognition.onerror = function(event) {
     console.error('❌ Erro no reconhecimento:', event.error);
-    let mensagem = 'Erro no reconhecimento de voz';
+    console.error('❌ Detalhes do erro:', event);
+    
+    let mensagem = 'Erro no reconhecimento de voz: ' + event.error;
     
     switch(event.error) {
       case 'no-speech':
-        mensagem = 'Nenhuma fala detectada. Tente novamente.';
+        mensagem = '🔇 Nenhuma fala detectada. Tente falar mais alto.';
         break;
       case 'audio-capture':
-        mensagem = 'Microfone não encontrado ou sem permissão.';
+        mensagem = '🎤 Microfone não encontrado. Verifique as configurações.';
         break;
       case 'not-allowed':
-        mensagem = 'Permissão para microfone negada. Clique no ícone da câmera na barra de endereços.';
+        mensagem = '🚫 Permissão negada. Clique no ícone do microfone na barra de endereços e permita o acesso.';
+        break;
+      case 'network':
+        mensagem = '🌐 Erro de rede. Verifique sua conexão.';
         break;
     }
     
-    alert('🎤 ' + mensagem);
-    finalizarDitado(botao, campo);
+    alert(mensagem);
+    finalizarDitado(botao, campo, originalPlaceholder);
   };
   
   recognition.onend = function() {
     console.log('🎤 Reconhecimento finalizado');
-    finalizarDitado(botao, campo);
+    finalizarDitado(botao, campo, originalPlaceholder);
   };
   
-  // Inicia o reconhecimento
-  recognition.start();
+  // Tenta iniciar o reconhecimento
+  try {
+    recognition.start();
+    console.log('🎤 recognition.start() chamado');
+  } catch (error) {
+    console.error('❌ Erro ao iniciar:', error);
+    alert('🎤 Erro ao iniciar reconhecimento: ' + error.message);
+    finalizarDitado(botao, campo, originalPlaceholder);
+  }
   
   // Se clicar no botão novamente, para a gravação
-  botao.onclick = function() {
+  botao.onclick = function(e) {
+    e.preventDefault();
+    console.log('🛑 Usuário clicou para parar');
     if (recognition) {
       recognition.stop();
     }
   };
 }
 
-function finalizarDitado(botao, campo) {
+function finalizarDitado(botao, campo, originalPlaceholder) {
+  console.log('🏁 Finalizando ditado');
+  
   botao.classList.remove('recording');
   botao.textContent = '🎤';
-  campo.placeholder = campo.getAttribute('data-original-placeholder') || 
+  campo.placeholder = originalPlaceholder || 
+                     campo.getAttribute('data-original-placeholder') || 
                      (campo.tagName === 'TEXTAREA' ? 'Observações da visita' : 'Descreva a situação encontrada...');
   
   // Restaura função original do botão
@@ -692,40 +731,40 @@ async function finalizar() {
     return;
   }
   
-  // Coleta dados do checklist com status e situações
-  const checklistItems = [...document.querySelectorAll('#lista .chk-item')]
-    .filter(item => item.querySelector('input[type="checkbox"]').checked)
-    .map(item => {
-      const nome = item.querySelector('.item-label').textContent;
-      const situacao = item.querySelector('.situacao-field').value;
-      const emojiSelecionado = item.querySelector('.emoji.selecionado');
-      
-      let status = '';
-      if (emojiSelecionado) {
-        status = emojiSelecionado.textContent + ' ';
-      }
-      
-      let linha = `${status}${nome}`;
-      if (situacao) linha += `: ${situacao}`;
-      
-      return linha;
-    });
-  
-  const checklistTexto = checklistItems.length > 0 ? checklistItems.join('\n• ') : 'Nenhum problema encontrado';
-  
-  // Monta mensagem para Telegram
-  const mensagem = "🛒 *Visita GPA*\n\n" +
-                  "🏪 *Loja:* " + document.getElementById('nome').value + " (" + codigo + ")\n" +
-                  "📍 *Cidade:* " + document.getElementById('cidade').value + "\n" +
-                  "👤 *Gerente:* " + (document.getElementById('gerente').value || "—") + "\n" +
-                  "📱 *WhatsApp:* " + (document.getElementById('whats').value || "—") + "\n" +
-                  "🔍 *Auditor:* " + usuario + "\n\n" +
-                  "📋 *Checklist:*\n• " + checklistTexto + "\n\n" +
-                  "📝 *Observações:* " + (document.getElementById('obs').value || "—");
+  document.getElementById('status').innerHTML = '<span style="color:blue">📤 Enviando...</span>';
   
   try {
-    document.getElementById('status').innerHTML = '<span style="color:blue">📤 Enviando...</span>';
+    // 1. ENVIA A MENSAGEM PRINCIPAL
+    const checklistItems = [...document.querySelectorAll('#lista .chk-item')]
+      .filter(item => item.querySelector('input[type="checkbox"]').checked)
+      .map(item => {
+        const nome = item.querySelector('.item-label').textContent;
+        const situacao = item.querySelector('.situacao-field').value;
+        const emojiSelecionado = item.querySelector('.emoji.selecionado');
+        
+        let status = '';
+        if (emojiSelecionado) {
+          status = emojiSelecionado.textContent + ' ';
+        }
+        
+        let linha = `${status}${nome}`;
+        if (situacao) linha += `: ${situacao}`;
+        
+        return linha;
+      });
     
+    const checklistTexto = checklistItems.length > 0 ? checklistItems.join('\n• ') : 'Nenhum problema encontrado';
+    
+    const mensagem = "🛒 *Visita GPA*\n\n" +
+                    "🏪 *Loja:* " + document.getElementById('nome').value + " (" + codigo + ")\n" +
+                    "📍 *Cidade:* " + document.getElementById('cidade').value + "\n" +
+                    "👤 *Gerente:* " + (document.getElementById('gerente').value || "—") + "\n" +
+                    "📱 *WhatsApp:* " + (document.getElementById('whats').value || "—") + "\n" +
+                    "🔍 *Auditor:* " + usuario + "\n\n" +
+                    "📋 *Checklist:*\n• " + checklistTexto + "\n\n" +
+                    "📝 *Observações:* " + (document.getElementById('obs').value || "—");
+    
+    // Envia mensagem principal
     await fetch("https://api.telegram.org/bot" + BOT_TOKEN + "/sendMessage", {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -736,8 +775,48 @@ async function finalizar() {
       })
     });
     
-    document.getElementById('status').innerHTML = '<span style="color:green">✅ Enviado para Telegram!</span>';
-  } catch(e) {
+    console.log('✅ Mensagem principal enviada');
+    
+    // 2. ENVIA AS FOTOS (SE HOUVER)
+    const fotosInput = document.getElementById('fotos');
+    const fotos = fotosInput.files;
+    
+    if (fotos.length > 0) {
+      document.getElementById('status').innerHTML = '<span style="color:blue">📷 Enviando fotos (' + fotos.length + ')...</span>';
+      console.log('📷 Enviando', fotos.length, 'fotos');
+      
+      for (let i = 0; i < fotos.length; i++) {
+        const foto = fotos[i];
+        const formData = new FormData();
+        formData.append('chat_id', CHAT_ID);
+        formData.append('photo', foto);
+        formData.append('caption', `📷 Foto ${i + 1}/${fotos.length} - ${document.getElementById('nome').value}`);
+        
+        try {
+          await fetch("https://api.telegram.org/bot" + BOT_TOKEN + "/sendPhoto", {
+            method: 'POST',
+            body: formData
+          });
+          
+          console.log('✅ Foto', i + 1, 'enviada');
+          
+          // Pequena pausa entre fotos para não sobrecarregar
+          await new Promise(resolve => setTimeout(resolve, 500));
+          
+        } catch (error) {
+          console.error('❌ Erro ao enviar foto', i + 1, ':', error);
+        }
+      }
+    }
+    
+    const totalItems = checklistItems.length;
+    const totalFotos = fotos.length;
+    
+    document.getElementById('status').innerHTML = 
+      `<span style="color:green">✅ Enviado! ${totalItems} itens + ${totalFotos} fotos</span>`;
+    
+  } catch(error) {
+    console.error('❌ Erro no envio:', error);
     document.getElementById('status').innerHTML = '<span style="color:red">❌ Erro no envio</span>';
   }
 }
