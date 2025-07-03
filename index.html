@@ -79,9 +79,10 @@ button{padding:12px 20px;font-size:14px;font-weight:bold;border:none;border-radi
   transform:scale(1.05);
 }
 .emoji-btn.active{
-  background:#007bff;
+  background:#007bff !important;
   transform:scale(1.1);
   box-shadow:0 2px 8px rgba(0,123,255,0.3);
+  border:2px solid #0056b3;
 }
 .obs-field{
   width:100%;
@@ -467,12 +468,13 @@ function setStatus(button, status) {
     item.classList.remove('has-red');
   }
   
-  // Marca automaticamente o checkbox se não estiver marcado
+  // SEMPRE marca o checkbox quando clica em qualquer emoji
   const checkbox = item.querySelector('input[type="checkbox"]');
-  if (!checkbox.checked) {
-    checkbox.checked = true;
-    contarChecklist();
-  }
+  checkbox.checked = true;
+  contarChecklist();
+  
+  // Log para debug
+  console.log('Status definido:', status, 'Checkbox marcado:', checkbox.checked);
 }
 
 function adicionarItem() {
