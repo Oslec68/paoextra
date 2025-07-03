@@ -63,7 +63,7 @@ button{padding:12px 20px;font-size:14px;font-weight:bold;border:none;border-radi
 .emoji-btn{
   width:36px;
   height:36px;
-  border:none;
+  border:2px solid transparent;
   background:transparent;
   cursor:pointer;
   border-radius:6px;
@@ -80,9 +80,9 @@ button{padding:12px 20px;font-size:14px;font-weight:bold;border:none;border-radi
 }
 .emoji-btn.active{
   background:#007bff !important;
-  transform:scale(1.1);
-  box-shadow:0 2px 8px rgba(0,123,255,0.3);
-  border:2px solid #0056b3;
+  border:2px solid #0056b3 !important;
+  transform:scale(1.1) !important;
+  box-shadow:0 2px 8px rgba(0,123,255,0.5) !important;
 }
 .obs-field{
   width:100%;
@@ -452,29 +452,50 @@ function contarChecklist() {
 }
 
 function setStatus(button, status) {
-  const item = button.closest('.chk-item');
-  const allButtons = item.querySelectorAll('.emoji-btn');
+  console.log('Clicou no botão:', status);
   
-  // Remove active de todos os botões do item
-  allButtons.forEach(btn => btn.classList.remove('active'));
-  
-  // Adiciona active no botão clicado
-  button.classList.add('active');
-  
-  // Se é vermelho, mostra campo de observação
-  if (status === 'red') {
-    item.classList.add('has-red');
-  } else {
-    item.classList.remove('has-red');
+  try {
+    const item = button.closest('.chk-item');
+    if (!item) {
+      console.error('Item não encontrado');
+      return;
+    }
+    
+    const allButtons = item.querySelectorAll('.emoji-btn');
+    const checkbox = item.querySelector('input[type="checkbox"]');
+    
+    if (!checkbox) {
+      console.error('Checkbox não encontrado');
+      return;
+    }
+    
+    // Remove active de todos os botões do item
+    allButtons.forEach(btn => {
+      btn.classList.remove('active');
+      console.log('Removendo active de:', btn);
+    });
+    
+    // Adiciona active no botão clicado
+    button.classList.add('active');
+    console.log('Adicionando active em:', button, status);
+    
+    // Força o checkbox a ser marcado
+    checkbox.checked = true;
+    console.log('Checkbox marcado:', checkbox.checked);
+    
+    // Se é vermelho, mostra campo de observação
+    if (status === 'red') {
+      item.classList.add('has-red');
+    } else {
+      item.classList.remove('has-red');
+    }
+    
+    // Atualiza contador
+    contarChecklist();
+    
+  } catch (error) {
+    console.error('Erro na função setStatus:', error);
   }
-  
-  // SEMPRE marca o checkbox quando clica em qualquer emoji
-  const checkbox = item.querySelector('input[type="checkbox"]');
-  checkbox.checked = true;
-  contarChecklist();
-  
-  // Log para debug
-  console.log('Status definido:', status, 'Checkbox marcado:', checkbox.checked);
 }
 
 function adicionarItem() {
