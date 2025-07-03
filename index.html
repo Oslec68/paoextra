@@ -142,8 +142,9 @@ footer button{flex:1}
 <div id="checklist" class="hidden">
   <div id="lista-checklist" style="margin-top:10px">
     <div class="checkbox-item">
-      <input type="checkbox" onchange="contarChecklist()">
-      <span class="texto">🔴 Ruptura</span>
+  <input type="checkbox" onchange="contarChecklist()">
+  <span class="emoji-status" onclick="trocarEmoji(this)">🔴</span>
+  <span class="texto">Ruptura</span>
     </div>
     <div class="checkbox-item">
       <input type="checkbox" onchange="contarChecklist()">
