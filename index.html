@@ -11,7 +11,6 @@ body{font:14px Arial;background:#f5f5f5;color:#111;min-height:100vh;display:flex
 header{background:var(--azul);text-align:center;padding:15px 0;color:#fff}
 header h1{font-size:22px;margin-bottom:5px}
 header small{font-size:12px;opacity:0.9}
-#weather{margin-top:8px;font-size:12px;opacity:0.9}
 form{flex:1;padding:10px}
 section{background:#fff;margin:10px 0;padding:15px;border-radius:10px;box-shadow:0 2px 4px rgba(0,0,0,0.1)}
 label{display:block;font-size:12px;font-weight:bold;margin-bottom:5px;color:#333}
@@ -61,22 +60,23 @@ button{padding:12px 20px;font-size:14px;font-weight:bold;border:none;border-radi
   flex-shrink:0;
 }
 .emoji-btn{
-  width:36px;
-  height:36px;
-  border:2px solid transparent;
-  background:transparent;
-  cursor:pointer;
-  border-radius:6px;
-  font-size:18px;
-  margin:0;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  transition:all 0.2s ease;
+  width:36px !important;
+  height:36px !important;
+  border:2px solid transparent !important;
+  background:transparent !important;
+  cursor:pointer !important;
+  border-radius:6px !important;
+  font-size:18px !important;
+  margin:0 !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  transition:all 0.2s ease !important;
+  padding:0 !important;
 }
 .emoji-btn:hover{
-  background:#e9ecef;
-  transform:scale(1.05);
+  background:#e9ecef !important;
+  transform:scale(1.05) !important;
 }
 .emoji-btn.active{
   background:#007bff !important;
@@ -140,7 +140,7 @@ footer button{flex:1}
   <div class="row">
     <div class="cod">
       <label>Código</label>
-      <input id="cod" maxlength="4" placeholder="0000" onkeyup="buscarLoja()">
+      <input id="cod" maxlength="4" placeholder="0000">
     </div>
     <div>
       <label>Nome da Loja</label>
@@ -177,19 +177,19 @@ footer button{flex:1}
       <div class="metrics-grid">
         <div>
           <label>💰 Venda Mensal (R$)</label>
-          <input id="venda" placeholder="0,00" onblur="formatarMoeda(this)" oninput="contarMetricas()">
+          <input id="venda" placeholder="0,00">
         </div>
         <div>
           <label>📈 Variação (%)</label>
-          <input id="variacao" placeholder="0" type="number" oninput="contarMetricas()">
+          <input id="variacao" placeholder="0" type="number">
         </div>
         <div>
           <label>📉 Perda (R$)</label>
-          <input id="perda" placeholder="0,00" onblur="formatarMoeda(this)" oninput="contarMetricas()">
+          <input id="perda" placeholder="0,00">
         </div>
         <div>
           <label>🚫 Ruptura (%)</label>
-          <input id="ruptura" placeholder="0" type="number" max="100" oninput="contarMetricas()">
+          <input id="ruptura" placeholder="0" type="number" max="100">
         </div>
       </div>
     </div>
@@ -203,7 +203,7 @@ footer button{flex:1}
     <section>
       <div class="chk-group" id="lista">
         <div class="chk-item">
-          <input type="checkbox" value="Ruptura" onchange="contarChecklist()">
+          <input type="checkbox" value="Ruptura">
           <span>Ruptura</span>
           <div class="status-emojis">
             <button class="emoji-btn" onclick="setStatus(this, 'green')" data-status="green">🟢</button>
@@ -213,7 +213,7 @@ footer button{flex:1}
           <input type="text" class="obs-field" placeholder="Descreva o problema...">
         </div>
         <div class="chk-item">
-          <input type="checkbox" value="Preço errado" onchange="contarChecklist()">
+          <input type="checkbox" value="Preço errado">
           <span>Preço errado</span>
           <div class="status-emojis">
             <button class="emoji-btn" onclick="setStatus(this, 'green')" data-status="green">🟢</button>
@@ -223,7 +223,7 @@ footer button{flex:1}
           <input type="text" class="obs-field" placeholder="Descreva o problema...">
         </div>
         <div class="chk-item">
-          <input type="checkbox" value="Layout inadequado" onchange="contarChecklist()">
+          <input type="checkbox" value="Layout inadequado">
           <span>Layout inadequado</span>
           <div class="status-emojis">
             <button class="emoji-btn" onclick="setStatus(this, 'green')" data-status="green">🟢</button>
@@ -233,7 +233,7 @@ footer button{flex:1}
           <input type="text" class="obs-field" placeholder="Descreva o problema...">
         </div>
         <div class="chk-item">
-          <input type="checkbox" value="Limpeza" onchange="contarChecklist()">
+          <input type="checkbox" value="Limpeza">
           <span>Limpeza</span>
           <div class="status-emojis">
             <button class="emoji-btn" onclick="setStatus(this, 'green')" data-status="green">🟢</button>
@@ -243,7 +243,7 @@ footer button{flex:1}
           <input type="text" class="obs-field" placeholder="Descreva o problema...">
         </div>
         <div class="chk-item">
-          <input type="checkbox" value="Atendimento" onchange="contarChecklist()">
+          <input type="checkbox" value="Atendimento">
           <span>Atendimento</span>
           <div class="status-emojis">
             <button class="emoji-btn" onclick="setStatus(this, 'green')" data-status="green">🟢</button>
@@ -253,7 +253,7 @@ footer button{flex:1}
           <input type="text" class="obs-field" placeholder="Descreva o problema...">
         </div>
         <div class="chk-item">
-          <input type="checkbox" value="Exposição" onchange="contarChecklist()">
+          <input type="checkbox" value="Exposição">
           <span>Exposição</span>
           <div class="status-emojis">
             <button class="emoji-btn" onclick="setStatus(this, 'green')" data-status="green">🟢</button>
@@ -292,11 +292,8 @@ footer button{flex:1}
 </footer>
 
 <script>
-// CARREGA LOJAS DE ARQUIVO JSON EXTERNO
-let lojas = {};
-
-// Dados internos das lojas como fallback
-const lojasInternas = {
+// DADOS DAS LOJAS
+const lojas = {
   "0001": {"nome": "PA JARDIM PAULISTA", "cidade": "SAO PAULO"},
   "0003": {"nome": "PA NOVA ALIANCA", "cidade": "RIBEIRAO PRETO"},
   "0004": {"nome": "PA ANALIA FRANCO", "cidade": "SAO PAULO"},
@@ -370,9 +367,6 @@ const lojasInternas = {
   "6767": {"nome": "PA PIRACICABA PAULIS", "cidade": "PIRACICABA"},
   "8666": {"nome": "PA RIBEIRAO PRETO", "cidade": "RIBEIRAO PRETO"}
 };
-
-// Usa dados internos como padrão
-lojas = lojasInternas;
 
 // CONFIGURAÇÃO DO TELEGRAM
 const BOT_TOKEN = "7650475884:AAEicrlr9uiaRJQEMHAAyU2Oh3lAkqVzoTQ";
@@ -451,51 +445,34 @@ function contarChecklist() {
   document.getElementById('badge-check').textContent = `(${checked})`;
 }
 
+// FUNÇÃO PRINCIPAL DO STATUS - CORRIGIDA
 function setStatus(button, status) {
-  console.log('Clicou no botão:', status);
+  console.log('🎯 Clicou no botão:', status);
   
-  try {
-    const item = button.closest('.chk-item');
-    if (!item) {
-      console.error('Item não encontrado');
-      return;
-    }
-    
-    const allButtons = item.querySelectorAll('.emoji-btn');
-    const checkbox = item.querySelector('input[type="checkbox"]');
-    
-    if (!checkbox) {
-      console.error('Checkbox não encontrado');
-      return;
-    }
-    
-    // Remove active de todos os botões do item
-    allButtons.forEach(btn => {
-      btn.classList.remove('active');
-      console.log('Removendo active de:', btn);
-    });
-    
-    // Adiciona active no botão clicado
-    button.classList.add('active');
-    console.log('Adicionando active em:', button, status);
-    
-    // Força o checkbox a ser marcado
-    checkbox.checked = true;
-    console.log('Checkbox marcado:', checkbox.checked);
-    
-    // Se é vermelho, mostra campo de observação
-    if (status === 'red') {
-      item.classList.add('has-red');
-    } else {
-      item.classList.remove('has-red');
-    }
-    
-    // Atualiza contador
-    contarChecklist();
-    
-  } catch (error) {
-    console.error('Erro na função setStatus:', error);
+  const item = button.closest('.chk-item');
+  const allButtons = item.querySelectorAll('.emoji-btn');
+  const checkbox = item.querySelector('input[type="checkbox"]');
+  
+  // Remove active de todos os botões
+  allButtons.forEach(btn => btn.classList.remove('active'));
+  
+  // Adiciona active no botão clicado
+  button.classList.add('active');
+  
+  // Marca o checkbox
+  checkbox.checked = true;
+  
+  // Mostra campo de observação se for vermelho
+  if (status === 'red') {
+    item.classList.add('has-red');
+  } else {
+    item.classList.remove('has-red');
   }
+  
+  // Atualiza contador
+  contarChecklist();
+  
+  console.log('✅ Status aplicado:', status, 'Checkbox:', checkbox.checked);
 }
 
 function adicionarItem() {
@@ -506,7 +483,7 @@ function adicionarItem() {
   novoItem.className = 'chk-item';
   
   novoItem.innerHTML = `
-    <input type="checkbox" value="${txt}" onchange="contarChecklist()">
+    <input type="checkbox" value="${txt}">
     <span>${txt}</span>
     <div class="status-emojis">
       <button class="emoji-btn" onclick="setStatus(this, 'green')" data-status="green">🟢</button>
@@ -519,13 +496,6 @@ function adicionarItem() {
   document.getElementById('lista').appendChild(novoItem);
   document.getElementById('novo').value = '';
   contarChecklist();
-}
-
-function excluirItem(botao) {
-  if (confirm('Excluir este item do checklist?')) {
-    botao.parentElement.remove();
-    contarChecklist();
-  }
 }
 
 function abrirCamera() {
@@ -594,9 +564,11 @@ function limpar() {
       else el.value = '';
     });
     
-    // Fecha checklist
-    document.getElementById('checklistSec').style.display = 'none';
+    // Remove todas as classes active
+    document.querySelectorAll('.emoji-btn').forEach(btn => btn.classList.remove('active'));
+    document.querySelectorAll('.chk-item').forEach(item => item.classList.remove('has-red'));
     
+    document.getElementById('checklistSec').style.display = 'none';
     document.getElementById('badge-check').textContent = '(0)';
     document.getElementById('badge-metrics').textContent = '(0)';
     document.getElementById('status').innerHTML = '';
@@ -608,12 +580,24 @@ function updateClock() {
   document.getElementById('clock').textContent = new Date().toLocaleString('pt-BR');
 }
 
+// EVENTO PARA BUSCA DE LOJA
+document.getElementById('cod').addEventListener('input', buscarLoja);
+
+// EVENTOS PARA MÉTRICAS
+document.getElementById('venda').addEventListener('input', contarMetricas);
+document.getElementById('venda').addEventListener('blur', function() { formatarMoeda(this); });
+document.getElementById('variacao').addEventListener('input', contarMetricas);
+document.getElementById('perda').addEventListener('input', contarMetricas);
+document.getElementById('perda').addEventListener('blur', function() { formatarMoeda(this); });
+document.getElementById('ruptura').addEventListener('input', contarMetricas);
+
 // INICIALIZAÇÃO
 setInterval(updateClock, 1000);
 updateClock();
 updateWeather('CAMPINAS');
 
-console.log('Sistema iniciado com', Object.keys(lojas).length, 'lojas');
+console.log('✅ Sistema iniciado com', Object.keys(lojas).length, 'lojas');
+console.log('✅ Todas as funções carregadas corretamente');
 </script>
 </body>
 </html>
